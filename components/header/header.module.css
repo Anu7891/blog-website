@@ -1,0 +1,47 @@
+
+
+.headerWrapper {
+    background: var(--background-color) !important;
+   box-shadow:0 4px 30px #00000012;
+   padding: 0.5rem 0;
+   
+}
+
+.containerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.headerText {
+    background: var(--text-background-color) !important;
+    color: var(--background-color) !important;
+    font-size: 2.5rem;
+    width: fit-content !important; 
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.blogText {
+    color: var(--text-background-color) !important;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    padding-left: 0.25rem;
+    font-weight: 700;
+}
+
+.linkContainer {
+    display: flex;
+    gap: 1.25rem;
+
+  
+}
+
+
+.linkContainer p {
+ color:var(--theme-color) !important;
+ font-weight: 500 !important;
+
+  
+}
