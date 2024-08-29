@@ -3,7 +3,7 @@ import Wrapper from "../../hoc/wrapper";
 import Styles from "./header.module.css";
 
 
-const links = ["Crypto Insights", "Block Chain", "How To", "Opinion", "Reviews"];
+const links = ["Crypto Insights", "Block Chain", "How To", "Opinion", "Reviews","City","World","Business","Entertainment","Web Series"];
 
 const Header = () => {
 
@@ -12,8 +12,8 @@ const Header = () => {
     <Wrapper>
         <div className={Styles?.headerWrapper}>
             {/* ------------------- Header-Conatiner--------------------- */}
-            <div className={`${Styles?.containerWrapper} container mx-auto`}>
-             <div className="w-1/4">
+            <div className={`${Styles?.containerWrapper} container `}>
+             <div className="w-full flex justify-center ">
                 <span className={Styles?.headerText} >
                     Crypto
                 </span>

@@ -3,16 +3,11 @@
 .headerWrapper {
     background: var(--background-color) !important;
    box-shadow:0 4px 30px #00000012;
-   padding: 0.5rem 0;
+   padding: 1rem 0 0.5rem;
    
 }
 
-.containerWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-}
 
 .headerText {
     background: var(--text-background-color) !important;
@@ -34,6 +29,9 @@
 .linkContainer {
     display: flex;
     gap: 1.25rem;
+    margin:16px 0 8px;
+    align-items: center;
+    justify-content: center;
 
   
 }
