@@ -1,6 +1,5 @@
 import React from 'react';
 import { ARTICLE_IMAGE_FOUR, ARTICLE_IMAGE_ONE, ARTICLE_IMAGE_THREE, ARTICLE_IMAGE_TWO, BANNER_IMAGE_FIRST } from '../../lib/config';
-import Wrapper from '../../hoc/wrapper';
 import dynamic from 'next/dynamic';
 const SideArticles = dynamic(() => import('../sideArticles/sideArticles'));
 import Styles from "../blogWrapper/blogWrapper.module.css";
@@ -57,7 +56,10 @@ const BlogWrapper = () => {
                           </span>
                           </p>
                         <p className={`${Styles?.description} w-11/12 md:text-3xl lg:text-4xl mt-0`}>{articles[0].title}</p>
-                        <p className={`${Styles?.authorTitle}`}>By {articles[0].author} | {articles[0].date}</p>
+                        <p className={`${Styles?.authorTitle}`}>
+                            <span className='pr-1'>
+                            By {articles[0].author}
+                                </span>| {articles[0].date}</p>
                       </div>
                 </div>
             </div>
