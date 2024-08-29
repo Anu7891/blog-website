@@ -14,7 +14,11 @@ const SideArticles = ({ articles }) => {
                           </span>
                           </p>
                           <p className='md:text-base mt-0'>{article?.title}</p>
-                        <p className={`${Styles?.authorTitle}`}>By {article?.author} | {articles?.date}</p>
+                        <p className={`${Styles?.authorTitle}`}>
+                            <span className='pr-1'>
+                            By {article?.author} 
+                            </span>
+                             | {article?.date}</p>
                         </div>
                     </div>
                 </div>

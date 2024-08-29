@@ -1,6 +1,6 @@
  import React from "react";
 import Header from "../../components/header/header";
-import MainBannerSection from "../../containers/mainBannerSection/mainBannerSection";
+import BlogWrapper from "../../containers/blogWrapper/blogWrapper";
 
  const HomePage = ()=>  {
   return (
@@ -8,7 +8,9 @@ import MainBannerSection from "../../containers/mainBannerSection/mainBannerSect
       {/* ------------------- Blog Header -------------------------- */}
       <Header/>
       <div className="container mx-auto">
-      <MainBannerSection/>
+       <div className="w-full">
+         <BlogWrapper/> 
+        </div>
       </div>
     </div>
   );
