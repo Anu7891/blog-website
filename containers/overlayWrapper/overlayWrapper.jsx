@@ -1,6 +1,7 @@
 import React from "react";
 import Wrapper from "../../hoc/wrapper";
 import { THEME_TAG_COLOR, WHITE_COLOR } from "../../lib/config";
+import Styles from "./overlapWrapper.module.css";
 
 
 const OverlayWrapper =(props) => {
@@ -9,37 +10,39 @@ const OverlayWrapper =(props) => {
 
 return(
     <Wrapper>
-     <div className="overlay-wrapper">
-      <div className="overlay-inner">
+      <div className={Styles?.overlayWrapper}>
+      <div className={Styles?.overlayInner}>
            <div>
-           <p className="titleTag uppercase text-xs">
+           <p className={` ${Styles?.titleTag } uppercase text-xs`}>
             {titleTag}
            </p>
-            <p className={className || "description"}>{description}</p>
-            <p className="blog-by mt-2">
+            <p className={className || `${Styles?.description}`}>{description}</p>
+            <p className={`${Styles?.blogBy}`}>
                 <span>{blogBy} | {updatedTime}</span>
             </p>
            </div>
       </div>
-     </div>
+      </div>
+   
 
 
      <style>
         {
             `
-            .overlay-wrapper {
+             .overlay-wrapper {
              position:absolute;
              bottom:20px;
             
             }
+           
              .overlay-inner {
               background: linear-gradient(to top, var(--dark-accent) 0, var(--dark-accent-90) 50%, var(--dark-accent-0) 100%);
               border-radius:20px;
              }
 
               .overlay-inner > div { 
-              margin:25px 25px 0;
-              padding-bottom:20px;
+              margin:25px 25px 0 !important;
+            //   padding-bottom:20px;
              }
 
              .titleTag {
@@ -59,7 +62,7 @@ return(
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    background: ${THEME_TAG_COLOR};
+                    background: ${THEME_TAG_COLOR} !important;
                     transform: skewX(-25deg);
                     border-radius: 8px;
                     z-index: -1;

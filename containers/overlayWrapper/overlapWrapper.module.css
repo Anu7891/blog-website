@@ -1,0 +1,49 @@
+
+.overlayWrapper {
+position:absolute;
+bottom:0px;
+
+}
+
+.overlayInner {
+background: linear-gradient(to top, var(--dark-accent) 0, var(--dark-accent-90) 50%, var(--dark-accent-0) 100%);
+border-radius:12px;
+}
+
+.overlayInner  > div { 
+margin:25px 25px 0 !important;
+padding-bottom:20px;
+}
+
+.titleTag {
+position: relative;
+display: inline-block;
+padding: 8px 14px;
+border-radius: 8px;
+width: fit-content;
+z-index: 1;
+color:var(--white-color) !important;
+}
+
+.titleTag::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--theme-tag-color) !important;
+    transform: skewX(-25deg);
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.description {
+font-size:18px;
+color:var(--white-color) !important;
+}
+.blogBy {
+font-size:11px;
+color:var(--white-color) !important;
+}
+
