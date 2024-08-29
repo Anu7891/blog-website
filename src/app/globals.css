@@ -4,9 +4,24 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: #fff;
+  --background-end-rgb: #fff;
+  --background-color: #fff;
+  --text-background-color: #000;
+  --theme-color:#282828 !important;
+  --font-14:14px;
+  --font-16:16px;
+  --dark-accent:#191c20;
+  --dark-accent-0: #191c2000;
+  --dark-accent-90: #191c20f2;
+
+
+  
 }
+
+
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
