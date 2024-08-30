@@ -3,6 +3,7 @@ import Header from "../../components/header/header";
 import BlogWrapper from "../../containers/blogWrapper/blogWrapper";
 import { MostReadSection } from "../../containers/mostRead/MostRead";
 import Wrapper from "../../hoc/wrapper";
+import BlogThirdSection from "../../containers/blogThirdSection/blogThirdSection";
 
  const HomePage = ()=>  {
   return (
@@ -18,6 +19,9 @@ import Wrapper from "../../hoc/wrapper";
             <BlogWrapper />
             {/* ------------------------- Second Blog Section --------------------- */}
             <MostReadSection />
+
+            {/*------------------------------ Third Blog Section ------------------ */}
+            <BlogThirdSection/>
           </div>
           <div className="commonwrapper" />
         </div>
