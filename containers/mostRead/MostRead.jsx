@@ -4,7 +4,7 @@ import { SECOND_ARTICLE_IMAGE_FOUR, SECOND_ARTICLE_IMAGE_ONE, SECOND_ARTICLE_IMA
 import Styles from "./mostRead.module.css";
 import MostReadSideArticle from '../mostReadSideArticle/mostReadSideArticle';
 
-export const MostRead = () => {
+export const MostReadSection = () => {
 
      const mostReadArticles = [
         {
