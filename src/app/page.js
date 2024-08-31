@@ -11,7 +11,7 @@ import BlogThirdSection from "../../containers/blogThirdSection/blogThirdSection
       <div className="h-screen bg-white">
         {/* ------------------- Blog Header -------------------------- */}
         <Header />
-        <div className="w-full flex">
+        <div className="md:w-full flex">
           <div className="commonwrapper" />
 
           <div className=" middleWrapper">
@@ -35,6 +35,18 @@ import BlogThirdSection from "../../containers/blogThirdSection/blogThirdSection
             }
             .middleWrapper {
              min-width:60% !important;
+            }
+
+            @media only screen and (max-width:767.95px) {
+
+            .commonwrapper {
+               display:none !important;
+            }
+                 .middleWrapper {
+                  width:100vw !important;
+                  min-width:unset !important;
+                }
+            
             }
             
             
