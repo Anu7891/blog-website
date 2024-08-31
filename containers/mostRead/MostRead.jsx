@@ -36,7 +36,7 @@ export const MostReadSection = () => {
     ];
   return (
     <Wrapper>
-    <div className='most-read-wrapper mt-4 pt-4'>
+    <div className='most-read-wrapper pt-2 md:mt-4 md:pt-4 px-3 md:px-0'>
        
           <p className={`${Styles?.title} pb-1`}>Most Read</p>
        

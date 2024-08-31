@@ -21,6 +21,27 @@
     justify-content: flex-end;
 
 }
+.sideArticleImage {
+ height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+
+}
+
+.sideArticles {
+
+ display: grid;
+grid-template-columns: repeat(2, 1fr); 
+grid-template-rows: repeat(2, 1fr);   
+gap: 20px;
+
+}
 
 .overlayInner {
     display:flex;
@@ -67,5 +88,41 @@
 
 .authorTitle span:hover {
     text-decoration: underline;
+}
+
+
+@media only screen and (max-width:767.95px) {
+     .newsGrid {
+        grid-template-columns: 1fr;
+        padding:0!important;
+        width: 100vw !important;
+    }
+    .mainArticle {
+        padding:3.5rem 1rem  0.25rem !important;
+    }
+    .articleImage {
+        height: 350px  !important;
+      
+        width: fit-content;
+    }
+     .sideArticles {
+        display: block; /* Switch to block layout */
+        padding-inline: 1rem !important ;
+    }
+
+    .sideArticles > * {
+        display: inline-block; 
+        width: 100%; 
+        margin-bottom: 20px;
+    }
+    
+    .sideArticle {
+    height: 250px;
+    position: relative;
+}
+                     
+
+
+
 }
 

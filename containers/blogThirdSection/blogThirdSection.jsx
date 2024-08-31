@@ -28,7 +28,7 @@ const BlogThirdSection = () => {
 
   return (
     
-    <div className='my-4 py-4'>
+    <div className='px-3 md:px-0 md:my-4 md:py-4'>
         <CommonBlogSection
           title="Artificial Intelligence"
           blogDetails ={mostReadArticles}

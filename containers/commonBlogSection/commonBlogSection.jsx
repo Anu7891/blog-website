@@ -48,6 +48,13 @@ const CommonBlogSection = ({title ="" ,blogDetails =[]}) => {
                  .blog-details > p {
                  color: var(--theme-color) !important;
                  font-weight:500;
+                 }
+
+                 @media only screen and (max-width:767.95px) {
+                    .blog-details-wrapper {
+                      display:flex;
+                      flex-direction:column;
+                     }
                  
                  }
                     

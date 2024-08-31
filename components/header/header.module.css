@@ -43,3 +43,35 @@
 
   
 }
+
+@media only screen and (max-width:767.95px) {
+
+    .headerWrapper {
+        padding:0.75rem 0;
+        position: fixed !important;
+        top:0px;
+        width: 100vw !important;
+      
+        z-index: 99;
+        background: var(--white-color);
+
+
+    }
+
+    .headerText {
+    font-size: 1.25rem;
+   }
+
+   .blogText {
+    font-size: 1.25rem;   
+ }
+
+
+
+.linkContainer{
+
+    display:none !important;
+}
+
+
+}
