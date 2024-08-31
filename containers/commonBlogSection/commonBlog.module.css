@@ -1,0 +1,30 @@
+.title {
+font-size: 24px;
+font-weight: 700;
+border-bottom: 4px solid var(--black-color) !important;
+
+
+}
+
+.blogDetailsWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.blogDetailsWrapper img {
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.blogDetailsWrapper span {
+  color: var(--theme-color) !important;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 767.95px) {
+  .blogDetailsWrapper {
+    flex-direction: column;
+    padding-bottom:24px;
+  }
+}

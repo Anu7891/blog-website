@@ -1,6 +1,5 @@
-import React from 'react'
+import { SECOND_ARTICLE_IMAGE_ONE, SECOND_ARTICLE_IMAGE_THREE, SECOND_ARTICLE_IMAGE_TWO } from '../../lib/config';
 import CommonBlogSection from '../commonBlogSection/commonBlogSection';
-import { SECOND_ARTICLE_IMAGE_FOUR, SECOND_ARTICLE_IMAGE_ONE, SECOND_ARTICLE_IMAGE_THREE, SECOND_ARTICLE_IMAGE_TWO } from '../../lib/config';
 
 
 
@@ -33,10 +32,6 @@ const BlogThirdSection = () => {
           title="Artificial Intelligence"
           blogDetails ={mostReadArticles}
         />
-       
-
-
-
     </div>
   )
 }
