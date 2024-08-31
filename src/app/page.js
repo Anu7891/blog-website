@@ -1,9 +1,7 @@
- import React from "react";
+import React from "react";
 import Header from "../../components/header/header";
-import BlogWrapper from "../../containers/blogWrapper/blogWrapper";
-import { MostReadSection } from "../../containers/mostRead/MostRead";
+import HomePageMiddleSection from "../../containers/homePageMiddleSection/homePageMiddleSection";
 import Wrapper from "../../hoc/wrapper";
-import BlogThirdSection from "../../containers/blogThirdSection/blogThirdSection";
 
  const HomePage = ()=>  {
   return (
@@ -12,18 +10,17 @@ import BlogThirdSection from "../../containers/blogThirdSection/blogThirdSection
         {/* ------------------- Blog Header -------------------------- */}
         <Header />
         <div className="md:w-full flex">
+          {/* ------------------------ Containers For Ad Sense -------------------------------- */}
           <div className="commonwrapper" />
 
+          {/* ------------------------- Home Page Middle Section ------------------------------- */}
           <div className=" middleWrapper">
-            {/* ------------------------ First Blof Section ---------------------- */}
-            <BlogWrapper />
-            {/* ------------------------- Second Blog Section --------------------- */}
-            <MostReadSection />
-
-            {/*------------------------------ Third Blog Section ------------------ */}
-            <BlogThirdSection/>
+            <HomePageMiddleSection/>
           </div>
+
+          {/* ------------------------ Containers For Ad Sense -------------------------------- */}
           <div className="commonwrapper" />
+    
         </div>
 
         <style>
