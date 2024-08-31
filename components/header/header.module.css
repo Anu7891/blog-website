@@ -44,6 +44,28 @@
   
 }
 
+.customDrawerClass {
+    width: 100vw;
+    z-index:1301;
+    margin-top:3rem;
+}
+.drawerContent {
+    margin:1.5rem 1rem 2rem;
+}
+
+.linkText {
+ font-size: 1.125rem;
+ color:var(--theme-color);
+ font-weight: 500;
+ margin-bottom: 0.5rem;
+}
+
+.linkText:first-child {
+border-bottom:1px solid var(--theme-color);
+padding-bottom:0.75rem;
+margin-bottom:0.75rem !important;
+}
+
 @media only screen and (max-width:767.95px) {
 
     .headerWrapper {
@@ -52,7 +74,7 @@
         top:0px;
         width: 100vw !important;
       
-        z-index: 99;
+        z-index: 1302;
         background: var(--white-color);
 
 
