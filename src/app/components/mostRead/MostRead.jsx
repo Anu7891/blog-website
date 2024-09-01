@@ -1,8 +1,9 @@
 import React from 'react'
-import Wrapper from '../../hoc/wrapper'
-import { SECOND_ARTICLE_IMAGE_FOUR, SECOND_ARTICLE_IMAGE_ONE, SECOND_ARTICLE_IMAGE_THREE, SECOND_ARTICLE_IMAGE_TWO } from '../../lib/config';
+
+import { SECOND_ARTICLE_IMAGE_FOUR, SECOND_ARTICLE_IMAGE_ONE, SECOND_ARTICLE_IMAGE_THREE, SECOND_ARTICLE_IMAGE_TWO } from '../../../../lib/config';
 import Styles from "./mostRead.module.css";
 import MostReadSideArticle from '../mostReadSideArticle/mostReadSideArticle';
+import Wrapper from '../../../../hoc/wrapper';
 
 export const MostReadSection = () => {
 

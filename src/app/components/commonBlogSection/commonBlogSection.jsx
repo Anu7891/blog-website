@@ -1,5 +1,5 @@
 import React from 'react';
-import Wrapper from '../../hoc/wrapper';
+import Wrapper from '../../../../hoc/wrapper';
 import styles from "./commonBlog.module.css";
 
 const CommonBlogSection = ({ title = "", blogDetails = [] }) => {
