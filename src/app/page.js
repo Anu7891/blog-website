@@ -1,14 +1,15 @@
 import React from "react";
-import Header from "../../components/header/header";
-import HomePageMiddleSection from "../../containers/homePageMiddleSection/homePageMiddleSection";
 import Wrapper from "../../hoc/wrapper";
+import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMiddleSection";
+import Header from "../../components/header/header";
 
  const HomePage = ()=>  {
   return (
     <Wrapper>
       <div className="h-screen bg-white">
         {/* ------------------- Blog Header -------------------------- */}
-        <Header />
+          <Header />
+          
         <div className="md:w-full flex">
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
           <div className="commonwrapper" />

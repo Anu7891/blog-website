@@ -4,6 +4,7 @@ import Wrapper from "../../hoc/wrapper";
 import Styles from "./header.module.css";
 import { CLOSE_ICON, HAMBURGER_ICON } from "../../lib/config";
 import CustomDrawer from "../drawer/customDrawer";
+import CustomImage from "../image/image";
 
 
 const links = ["Crypto Insights", "Block Chain", "How To", "Opinion", "Reviews","City","World","Business","Entertainment","Web Series"];
@@ -36,10 +37,10 @@ class Header extends Component {
             <div className="w-full flex justify-center col-12 px-0  items-center">
               <div className={`${Styles?.menu} col-3 md:hidden`} >
                 {!this.state.swipableDrawer ? (
-                <img src={HAMBURGER_ICON} alt="menu" title="menu" height={"28px"} width={"28px"} onClick={this.handleSwipableDrawer} />
+                <CustomImage src={HAMBURGER_ICON} alt="menu" title="menu" height={28} width={28} onClick={this.handleSwipableDrawer} />
 
                 ) : (
-                <img src={CLOSE_ICON} alt="close-icon" title="close-icon" height={"20px"} width={"20px"} onClick={this.handleCloseSwipableDrawer} />
+                <CustomImage src={CLOSE_ICON} alt="close-icon" title="close-icon" height={20} width={20} onClick={this.handleCloseSwipableDrawer} />
                 )}
               </div>
               <div className="col-9 md:col-12 flex md:justify-center">
