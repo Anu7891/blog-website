@@ -5,13 +5,25 @@ import { MostReadSection } from '../mostRead/MostRead';
 import BlogThirdSection from '../blogThirdSection/blogThirdSection';
 
 
-const HomePageMiddleSection = () => {
+
+
+async function HomePageMiddleSection  ()  {
+   const getBlogUrl = "https://monil-news-letter-crud.vercel.app/article";
+    let blogs = [];
+
+    try {
+        const response = await fetch(getBlogUrl);
+        blogs = await response.json();
+    } catch (err) {
+        console.error("Failed to fetch blogs:", err);
+    }
+
   return (
    
    
    <Wrapper>  
         {/* ------------------------ First Blog Section ---------------------- */}
-            <BlogWrapper />       
+        <BlogWrapper blogs={blogs} />       
         {/* ------------------------- Second Blog Section --------------------- */}
         <MostReadSection />
 
