@@ -41,7 +41,6 @@
 
 .imgWrapper > div > img {
     height: 350px !important; 
-    width: auto !important;
 }
 
 
@@ -51,7 +50,6 @@
 @media only screen and (min-width:1200px) and (max-width:1440px) {
 .imgWrapper > div > img {
     height: 530px !important; 
-      width: auto !important;
 }
 
 
@@ -61,7 +59,6 @@
 @media only screen and (min-width:1440px)  {
 .imgWrapper > div > img {
     height: 560px !important; 
-      width: auto !important;
 }
 
 }
