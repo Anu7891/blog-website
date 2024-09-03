@@ -27,25 +27,7 @@ import Header from "../../components/header/header";
         <style>
           {
             `
-            .commonwrapper {
-              min-width:20% !important;
-            
-            }
-            .middleWrapper {
-             min-width:60% !important;
-            }
-
-            @media only screen and (max-width:767.95px) {
-
-            .commonwrapper {
-               display:none !important;
-            }
-                 .middleWrapper {
-                  width:100vw !important;
-                  min-width:unset !important;
-                }
-            
-            }
+           
             
             
             

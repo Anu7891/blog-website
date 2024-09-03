@@ -1,13 +1,16 @@
 import React from 'react';
 import Styles from "../blogWrapper/blogWrapper.module.css";
+import Link from 'next/link';
 
 const SideArticles = ({ articles }) => {
+
+    console.log(articles,"ddvghdghd")
     return (
         <div className={`${Styles?.sideArticles}`}>
             {articles.map((article, index) => (
                 <div key={index} className={`${Styles?.sideArticle}`}>
-                    <div className={`${Styles?.sideArticleImage}`} style={{ backgroundImage: `url(${article?.image})` }}>
-                    <div className={`${Styles?.overlayInner} gap_8`}>
+                    <Link href={article?.code || ""} className={`${Styles?.sideArticleImage}`} style={{ backgroundImage: `url(${article?.image})` }}>
+                       <div className={`${Styles?.overlayInner} gap_8`}>
                         {/* <p className={`${Styles?.categoryLabel}`}>
                           <span>
                           {article?.category}
@@ -20,7 +23,7 @@ const SideArticles = ({ articles }) => {
                             </span>
                              | {article?.date}</p> */}
                         </div>
-                    </div>
+                    </Link>
                 </div>
             ))}
         </div>

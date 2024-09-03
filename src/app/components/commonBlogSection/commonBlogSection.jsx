@@ -5,7 +5,7 @@ import styles from "./commonBlog.module.css";
 const CommonBlogSection = ({ title = "", blogDetails = [] }) => {
   return (
     <Wrapper>
-       <p className={`${styles?.title} pb-2 mb-4 md:py-4 md:my-4`}>{title}</p>
+       <p className={`${styles?.title} pb-2 mb-4`}>{title}</p>
       <div className={styles.blogDetailsWrapper}>
         {blogDetails?.length > 0 &&
           blogDetails.map((blog, index) => (

@@ -4,12 +4,11 @@ import dynamic from 'next/dynamic';
 const SideArticles = dynamic(() => import('../sideArticles/sideArticles'));
 import Styles from "../blogWrapper/blogWrapper.module.css";
 import { ARTICLE_IMAGE_FOUR, ARTICLE_IMAGE_ONE, ARTICLE_IMAGE_THREE, ARTICLE_IMAGE_TWO, BANNER_IMAGE_FIRST } from '../../../../lib/config';
+import Link from 'next/link';
 
 
-const BlogWrapper = ({blogs}) => {
+const BlogWrapper = ({firstSectionBlogs}) => {
 
-
-    const firstSectionBlogs = blogs.slice(0,5);
 
     // const articles = [
     //     {
@@ -53,7 +52,7 @@ const BlogWrapper = ({blogs}) => {
      
         <div className={`${Styles?.newsGrid} pt-5 mt-5`}>
             <div className={`${Styles?.mainArticle}`}>
-                <div className={`${Styles?.articleImage}`} style={{ backgroundImage: `url(${firstSectionBlogs[0].image})` }}>
+                <Link href={firstSectionBlogs[0]?.code} className={`${Styles?.articleImage}`} style={{ backgroundImage: `url(${firstSectionBlogs[0].image})` }}>
                       <div className={`${Styles?.overlayInner}`}>
                         {/* <p className={`${Styles?.categoryLabel}`}>
                           <span>
@@ -66,7 +65,7 @@ const BlogWrapper = ({blogs}) => {
                             By {articles[0].author}
                                 </span>| {articles[0].date}</p> */}
                       </div>
-                </div>
+                </Link>
             </div>
             <SideArticles articles={firstSectionBlogs.slice(1)}/>
           
