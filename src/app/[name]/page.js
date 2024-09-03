@@ -4,7 +4,7 @@ import Wrapper from '../../../hoc/wrapper';
 import { API_BASE_URL } from '../../../lib/config';
 import CustomImage from '../../../components/image/image';
 import Header from '../../../components/header/header';
-import style from "../styles/blogDetails.module.css";
+import Styles from "../styles/blogDetails.module.css"
 
 export async function generateStaticParams() {
     // Fetch or define your dynamic route parameters here.
@@ -32,7 +32,8 @@ export default async function MainBlogDetails({ params }) {
         return <div>Article not found</div>;
     }
 
-    const { title = " ", image = ' ', description = " ", htmlDescription = " " } = article?.[0];
+
+    
 
     return (
         <Wrapper>
@@ -45,14 +46,14 @@ export default async function MainBlogDetails({ params }) {
                 {/* ------------------- Blogs Middle Section ------------------------------------ */}
                 <div className="middleWrapper">
                     <div className='px-4 md:px-0 mb-5 md:pb-6'>
-                        <p className={style?.title}>{title}</p>
-                        <div className={`${style?.imgWrapper} col-12 px-0 pb-5`}>
-                            <CustomImage src={image} alt={title} title={title} height={500} width={500} priority unoptimized />
+                        <p className={Styles?.title}>{article?.[0]?.title}</p>
+                        <div className={`${Styles?.imgWrapper} col-12 px-0 pb-5`}>
+                            <CustomImage src={article?.[0]?.image} alt={article?.[0]?.title} title={article?.[0]?.title} height={500} width={500} priority unoptimized />
                         </div>
                         <p
-                            dangerouslySetInnerHTML={{ __html: description || htmlDescription }}
+                            dangerouslySetInnerHTML={{ __html: article?.[0]?.description || article?.[0]?.htmlDescription }}
                             style={{ fontFamily: 'Lato, sans-serif', fontSize: '16px' }}
-                            className={style?.description}
+                            className={Styles?.description}
                         />
                     </div>
                 </div>
