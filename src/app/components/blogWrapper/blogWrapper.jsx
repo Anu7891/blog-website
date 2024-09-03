@@ -1,10 +1,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-
-const SideArticles = dynamic(() => import('../sideArticles/sideArticles'));
-import Styles from "../blogWrapper/blogWrapper.module.css";
-import { ARTICLE_IMAGE_FOUR, ARTICLE_IMAGE_ONE, ARTICLE_IMAGE_THREE, ARTICLE_IMAGE_TWO, BANNER_IMAGE_FIRST } from '../../../../lib/config';
 import Link from 'next/link';
+import Styles from "../blogWrapper/blogWrapper.module.css";
+const SideArticles = dynamic(() => import('../sideArticles/sideArticles'));
+// import { ARTICLE_IMAGE_FOUR, ARTICLE_IMAGE_ONE, ARTICLE_IMAGE_THREE, ARTICLE_IMAGE_TWO, BANNER_IMAGE_FIRST } from '../../../../lib/config';
+
 
 
 const BlogWrapper = ({firstSectionBlogs}) => {
