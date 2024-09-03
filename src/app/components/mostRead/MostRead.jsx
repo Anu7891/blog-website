@@ -4,8 +4,10 @@ import { SECOND_ARTICLE_IMAGE_FOUR, SECOND_ARTICLE_IMAGE_ONE, SECOND_ARTICLE_IMA
 import Styles from "./mostRead.module.css";
 import MostReadSideArticle from '../mostReadSideArticle/mostReadSideArticle';
 import Wrapper from '../../../../hoc/wrapper';
+import Link from 'next/link';
 
-export const MostReadSection = () => {
+export const MostReadSection = ({blogs}) => {
+
 
      const mostReadArticles = [
         {
@@ -45,12 +47,15 @@ export const MostReadSection = () => {
                 
                 {/* ------------------ First Article Section -------------------------- */}
                  <div className={`${Styles?.firstSection}`}>
-                    <img  src={mostReadArticles?.[0]?.imageUrl} alt="article-img" />
-                    <p className={`${Styles?.titleText} pt-3 pb-2`}>{mostReadArticles?.[0]?.title}</p>
-                    <p className={`${Styles?.description}`}>{mostReadArticles?.[0]?.description}</p>
+                    <Link href={blogs?.[0]?.code} >
+                    <img  src={blogs?.[0]?.image} alt="article-img" />
+                    <p className={`${Styles?.titleText} pt-3 pb-2`}>{blogs?.[0]?.title}</p>
+                    </Link>
+                    <p dangerouslySetInnerHTML={{ __html: blogs?.[0]?.description  || blogs?.[0]?.htmlDescription  }} className={`${Styles?.description}`} />
+                  
                  </div>
 
-                 <MostReadSideArticle  articles={mostReadArticles.slice(1)}/> 
+                 <MostReadSideArticle  articles={blogs.slice(1)}/> 
              
             </div>
     

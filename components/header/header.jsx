@@ -5,6 +5,7 @@ import Styles from "./header.module.css";
 import { CLOSE_ICON, HAMBURGER_ICON } from "../../lib/config";
 import CustomDrawer from "../drawer/customDrawer";
 import CustomImage from "../image/image";
+import Link from "next/link";
 
 
 const links = ["Crypto Insights", "Block Chain", "How To", "Opinion", "Reviews","City","World","Business","Entertainment","Web Series"];
@@ -43,10 +44,10 @@ class Header extends Component {
                 <CustomImage src={CLOSE_ICON} alt="close-icon" title="close-icon" height={20} width={20} onClick={this.handleCloseSwipableDrawer} />
                 )}
               </div>
-              <div className="col-9 md:col-12 flex md:justify-center">
+              <Link href={'/'} className="col-9 md:col-12 flex md:justify-center md:pl-0 pl-4" >
                 <span className={Styles?.headerText}>Crypto</span>
                 <span className={Styles?.blogText}>Blogs</span>
-              </div>
+              </Link>
             </div>
 
             {/* -------------------- Links------------------------- */}
