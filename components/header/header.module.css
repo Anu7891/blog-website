@@ -28,8 +28,8 @@
 
 .linkContainer {
     display: flex;
-    gap: 1.25rem;
-    margin:16px 0 8px;
+    gap: 2rem;
+    margin:20px 0 12px;
     align-items: center;
     justify-content: center;
 
@@ -40,6 +40,9 @@
 .linkContainer p {
  color:var(--theme-color) !important;
  font-weight: 500 !important;
+ text-transform: capitalize;
+ margin-bottom: 0 !important;
+ font-size: 1.25rem !important;
 
   
 }
@@ -51,6 +54,9 @@
 }
 .drawerContent {
     margin:1.5rem 1rem 2rem;
+     text-transform: capitalize;
+    font-size: 1.25rem !important;
+
 }
 
 .linkText {

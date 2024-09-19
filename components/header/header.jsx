@@ -6,6 +6,7 @@ import { CLOSE_ICON, HAMBURGER_ICON } from "../../lib/config";
 import CustomDrawer from "../drawer/customDrawer";
 import CustomImage from "../image/image";
 import Link from "next/link";
+import { fetchCategories } from "@/utils/apiHelper";
 
 
 const links = ["Crypto Insights", "Block Chain", "How To", "Opinion", "Reviews","City","World","Business","Entertainment","Web Series"];
@@ -15,6 +16,9 @@ class Header extends Component {
     super(props);
     this.state = {
       swipableDrawer: false,
+      categories: [],
+      loading: true,
+      error: null,
     };
   }
 
@@ -28,8 +32,29 @@ class Header extends Component {
   this.setState({ swipableDrawer: false });
 };
 
+  // Separate method to fetch categories
+  handlefetchCategoryData = async () => {
+    try {
+      const data = await fetchCategories();
+      if (data) {
+        this.setState({ categories: data });
+      }
+    } catch (error) {
+      this.setState({ categories: [] });
+    }
+  }
+
+  componentDidMount() {
+    this.handlefetchCategoryData(); // Call the separate method in componentDidMount
+  }
+
+
 
   render() {
+    const { categories } = this.state;
+
+   
+
     return (
       <Wrapper>
         <div className={Styles?.headerWrapper}>
@@ -52,9 +77,9 @@ class Header extends Component {
 
             {/* -------------------- Links------------------------- */}
             <div className={Styles?.linkContainer}>
-              {links.map((link, index) => (
+              {categories.map((link, index) => (
                 <p className="text-sm md:text-base" key={index}>
-                  {link}
+                  {link?.name?.en || link?.description}
                 </p>
               ))}
             </div>
@@ -72,9 +97,9 @@ class Header extends Component {
             drawerClassName={Styles?.customDrawerClass}  //Custom class for content
             >
             <div className={Styles?.drawerContent}>
-                {links.map((link, index) => (
+                {categories.map((link, index) => (
                 <p className={`${Styles?.linkText} text-sm md:text-base`} key={index}>
-                    {link}
+                    {link?.name?.en || link?.description}
                 </p>
                 ))}
             </div>
