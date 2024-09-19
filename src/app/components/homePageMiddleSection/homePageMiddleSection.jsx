@@ -8,35 +8,36 @@ import { API_BASE_URL } from '../../../../lib/config';
 
 
 
-async function HomePageMiddleSection  ()  {
-    let blogs = [];
+async function HomePageMiddleSection() {
+  let blogs = [];
 
-    try {
-        const response = await fetch(API_BASE_URL);
-        blogs = await response.json();
-    } catch (err) {
-        console.error("Failed to fetch blogs:", err);
-    }
+  try {
+    const response = await fetch(API_BASE_URL);
+    blogs = await response.json();
+  } catch (err) {
+    console.error("Failed to fetch blogs:", err);
+  }
 
-    const firstSectionBlogs = blogs.slice(0,5);
-    const secondSectionBlogs = blogs.slice(6, 10);
+  const firstSectionBlogs = blogs.slice(0, 5);
+  const secondSectionBlogs = blogs.slice(6, 10);
 
   return (
-   
-   
-   <Wrapper>  
-        {/* ------------------------ First Blog Section ---------------------- */}
-        <BlogWrapper firstSectionBlogs={firstSectionBlogs} />
-        <div className='containerWrapper'>
+
+
+    <Wrapper>
+      {/* ------------------------ First Blog Section ---------------------- */}
+      <BlogWrapper firstSectionBlogs={firstSectionBlogs} />
+
+      <div className='containerWrapper'>
+
         {/* ------------------------- Second Blog Section --------------------- */}
-           <MostReadSection blogs={secondSectionBlogs} />
-            
-            {/* <BlogThirdSection /> */}
-          </div>       
+        <MostReadSection blogs={secondSectionBlogs} />
 
-        
+        {/* ------------------------- Second Blog Section --------------------- */}
+        <BlogThirdSection />
 
-   
+      </div>
+
     </Wrapper>
   )
 }
