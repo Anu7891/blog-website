@@ -10,10 +10,10 @@ import Link from 'next/link';
 export const MostReadSection = ({blogs}) => {
 
   const initialDescription = blogs?.[0]?.description || blogs?.[0]?.htmlDescription ;
-  const [description ,setDescription] = React.useState(initialDescription);
+  const [description ,setDescription] = React.useState(null);
 
-  React.useEffect (( ) => {
-    setDescription(initialDescription)
+  React.useEffect (() => {
+    setDescription(initialDescription);
   },[initialDescription])
 
 
