@@ -17,8 +17,9 @@ async function HomePageMiddleSection  ()  {
     } catch (err) {
         console.error("Failed to fetch blogs:", err);
     }
-     const firstSectionBlogs = blogs.slice(0,5);
-    const secondSectionBlogs = blogs.slice(5, 9);
+
+    const firstSectionBlogs = blogs.slice(0,5);
+    const secondSectionBlogs = blogs.slice(6, 10);
 
   return (
    
