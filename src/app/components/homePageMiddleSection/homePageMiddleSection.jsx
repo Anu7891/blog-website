@@ -30,7 +30,8 @@ async function HomePageMiddleSection  ()  {
         <div className='containerWrapper'>
         {/* ------------------------- Second Blog Section --------------------- */}
            <MostReadSection blogs={secondSectionBlogs} />
-            <BlogThirdSection />
+            
+            {/* <BlogThirdSection /> */}
           </div>       
 
         
