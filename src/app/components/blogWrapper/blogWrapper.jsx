@@ -22,7 +22,7 @@ const BlogWrapper = ({firstSectionBlogs =[]}) => {
                           {articles[0].category}
                           </span>
                           </p> */}
-                        <p className={`${Styles?.description} mb-0 w-11/12 md:text-3xl lg:text-4xl mt-0`}>{firstSectionBlogs[0].title}</p>
+                        <p className={`${Styles?.description} mb-0 md:w-11/12 md:text-3xl lg:text-4xl mt-0`}>{firstSectionBlogs[0].title}</p>
                         {/* <p className={`${Styles?.authorTitle}`}>
                             <span className='pr-1'>
                             By {articles[0].author}
