@@ -37,10 +37,10 @@ class Header extends Component {
     try {
       const data = await fetchCategories();
       if (data) {
-        this.setState({ categories: data });
+        this.setState({ categories: data, loading:false });
       }
     } catch (error) {
-      this.setState({ categories: [] });
+      this.setState({ categories: [], loading: false, error: "Failed to load categories" });
     }
   }
 
@@ -51,7 +51,7 @@ class Header extends Component {
 
 
   render() {
-    const { categories } = this.state;
+    const { categories, loading, error } = this.state;
 
    
 
@@ -77,11 +77,20 @@ class Header extends Component {
 
             {/* -------------------- Links------------------------- */}
             <div className={Styles?.linkContainer}>
-              {categories.map((link, index) => (
-                <p className="text-sm md:text-base" key={index}>
-                  {link?.name?.en || link?.description}
-                </p>
-              ))}
+              {loading ? (
+                <p>Loading categories...</p>
+              ) : error ? (
+                <p>{error}</p>
+              ) : (
+                categories?.length > 0 && categories.map((link, index) => (
+                  <p
+                    className="text-sm md:text-base hover:underline"
+                    key={link?.name?.en + index}
+                  >
+                    {link?.name?.en || link?.description}
+                  </p>
+                ))
+              )}
             </div>
           </div>
         </div>
