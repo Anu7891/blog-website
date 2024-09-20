@@ -17,19 +17,12 @@ const MostReadSideArticle = ({ articles = [] }) => {
   return (
     <div className={Styles?.sideArticles}>
       {articles.length > 0 && articles.map((item, index) => (
-        <div className={Styles?.sideArticle} key={`${item?.title}-${index}`}>
-          <img src={item?.image} alt={item?.title} title={item?.title} />
-          <div className={Styles?.descriptionWrapper}>
-            <Link href={item?.code}>
-              <p>{item?.title}</p>
-            </Link>
-           
-              <p
-                dangerouslySetInnerHTML={{ __html: descriptions[index] }}
-                className={Styles?.mostReadDescription}
-              />
-         
-          </div>
+        <div key={index} className={`${Styles?.sideArticle}`}>
+          <Link href={item?.code || ""} className={`${Styles?.sideArticleImage}`} style={{ backgroundImage: `url(${item?.image})` }}>
+            <div className={`${Styles?.overlayInner} gap_8`}>
+              <p className={`${Styles?.description} mb-0 md:text-base mt-0`}>{item?.title}</p>
+            </div>
+          </Link>
         </div>
       ))}
     </div>
