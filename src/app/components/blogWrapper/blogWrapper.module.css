@@ -105,11 +105,10 @@ gap: 20px;
         width: 100vw !important;
     }
     .mainArticle {
-        padding:3.5rem 1rem  0.25rem !important;
+        padding:2.5rem 1rem  0.25rem !important;
     }
     .articleImage {
         height: 350px  !important;
-      
         width: fit-content;
     }
      .sideArticles {
@@ -126,7 +125,13 @@ gap: 20px;
     .sideArticle {
     height: 250px;
     position: relative;
-}
+    margin-bottom: 0 !important;
+   }
+
+   .description {
+    font-size: 18px !important;
+    line-height: 26px !important;
+   }
                      
 
 

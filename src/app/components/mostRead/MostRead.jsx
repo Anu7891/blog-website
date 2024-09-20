@@ -26,16 +26,15 @@ export const MostReadSection = ({blogs}) => {
             <div className={`${Styles?.mostReadArticleWrapper} py-4 my-4`}>
                 
                 {/* ------------------ First Article Section -------------------------- */}
-                 <div className={`${Styles?.firstSection}`}>
-                    <Link href={blogs?.[0]?.code} >
-                    <img  src={blogs?.[0]?.image} alt="article-img" title="article-img" />
-                    <p className={`${Styles?.titleText} pt-3 pb-2`}>{blogs?.[0]?.title}</p>
+                 {/* <div className={`${Styles?.firstSection}`}>
+                  <Link href={blogs?.[0]?.code} className={`${Styles?.articleImage}`} style={{ backgroundImage: `url(${blogs?.[0].image})` }} >
+                    <div className={`${Styles?.overlayInner}`}>
+                     <p className={`${Styles?.description} mb-0 w-11/12 md:text-3xl lg:text-4xl mt-0`}>{blogs?.[0]?.title}</p>
+                    </div>
                     </Link>
-                    <div dangerouslySetInnerHTML={{ __html:description }} className={`${Styles?.description}`} />
-                  
-                 </div>
+                 </div> */}
 
-                 <MostReadSideArticle  articles={blogs.slice(1)}/> 
+                 <MostReadSideArticle  articles={blogs}/> 
              
             </div>
     
