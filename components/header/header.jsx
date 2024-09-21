@@ -110,9 +110,9 @@ class Header extends Component {
             <div className={Styles?.drawerContent}>
                 {categories?.data?.length > 0 ? (
                   categories.data.map((link, index) => (
-                    <Link href={`/c/${link?.id}`}  className={`${Styles?.linkText} text-sm md:text-base pt-5`} key={index}>
+                    <Link href={`/c/${link?.id}`} className={`${Styles?.linkText} text-sm md:text-base pt-5 flex`} key={index}>
                       {link?.name?.en || link?.description}
-                    </Link>
+                    </Link >
                   ))
                 ) : (
                     <p className={`${Styles?.linkText} pt-5`}>No categories available.</p>
