@@ -1,0 +1,67 @@
+.subCategoriesWrapper {
+    gap:12px;
+ 
+
+
+}
+
+.imageClass {
+ height: 230px;
+ display: flex;
+
+}
+
+.imageClass > img {
+height: 100% !important;
+width: 100% !important;
+border-radius: 12px;
+object-fit: cover;
+
+}
+
+.categoryName{
+    padding-bottom: 0.25rem;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    
+}
+
+@media only screen and (min-width:1200px) and (max-width:1280px) {
+.imageClass {
+ height: 230px !important;
+ width: 230px !important;
+
+}
+
+
+}
+
+@media only screen and (min-width:1130px) and (max-width:1200px) {
+.imageClass {
+ height: 220px !important;
+ width: 220px !important;
+
+}
+
+
+}
+
+@media only screen and (min-width:992px) and (max-width:1130px) {
+.imageClass {
+ height: 215px !important;
+ width: 215px !important;
+
+}
+
+
+}
+
+@media only screen and (max-width:767.95px) {
+
+    .titleClass {
+     font-size:1rem;
+
+    }
+}
+

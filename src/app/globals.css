@@ -27,6 +27,11 @@
  max-width: 25%;
 }
 
+.col-4 {
+  flex: 0 0 32.5%;
+ max-width: 32.5%; 
+}
+
 .col-6 {
  flex: 0 0 50%;
  max-width: 50%;
@@ -40,6 +45,10 @@ flex: 0 0 75%;
 .col-12 {
 flex: 0 0 100%;
  max-width: 100%;
+}
+
+.borderClass {
+border-bottom: 4px solid #000;
 }
 
 
@@ -63,6 +72,15 @@ flex: 0 0 100%;
   .middleWrapper {
   width:100vw !important;
   min-width:unset !important;
+}
+.titleClass {
+     font-size:1.125rem;
+     font-weight: 500;
+     line-height: 1.5rem;
+
+    }
+.logoImg {
+   height: 60px !important;
 }
   
   }
