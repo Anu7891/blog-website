@@ -9,29 +9,17 @@ const SideArticles = dynamic(() => import('../sideArticles/sideArticles'));
 
 const BlogWrapper = ({firstSectionBlogs =[]}) => {
 
-
-
     return (
      
         <div className={`${Styles?.newsGrid} pt-5 mt-5`}>
             <div className={`${Styles?.mainArticle}`}>
                 <Link href={firstSectionBlogs[0]?.code} className={`${Styles?.articleImage}`} style={{ backgroundImage: `url(${firstSectionBlogs[0].image})` }}>
                       <div className={`${Styles?.overlayInner}`}>
-                        {/* <p className={`${Styles?.categoryLabel}`}>
-                          <span>
-                          {articles[0].category}
-                          </span>
-                          </p> */}
                         <p className={`${Styles?.description} mb-0 md:w-11/12 md:text-3xl lg:text-4xl mt-0`}>{firstSectionBlogs[0].title}</p>
-                        {/* <p className={`${Styles?.authorTitle}`}>
-                            <span className='pr-1'>
-                            By {articles[0].author}
-                                </span>| {articles[0].date}</p> */}
                       </div>
                 </Link>
             </div>
             <SideArticles articles={firstSectionBlogs.slice(1)}/>
-          
         </div>
         
     );
