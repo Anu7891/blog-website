@@ -53,10 +53,6 @@ class Header extends Component {
   render() {
     const { categories, loading, error } = this.state;
 
-    console.log(categories,"dfdhgdfhdgd")
-
-   
-
     return (
       <Wrapper>
         <div className={Styles?.headerWrapper}>
@@ -86,7 +82,7 @@ class Header extends Component {
                 categories?.data?.length > 0 && categories?.data?.map((link, index) => (
                   <Link
                     href={`/c/${link?.id}`}
-                    className="text-sm md:text-base hover:underline"
+                    className="text-sm md:text-base hover:underline categoryLink"
                     key={link?.name?.en + index}
                   >
                     {link?.name?.en || link?.description}
@@ -108,15 +104,24 @@ class Header extends Component {
             drawerClassName={Styles?.customDrawerClass}  //Custom class for content
             >
             <div className={Styles?.drawerContent}>
-                {categories?.data?.length > 0 ? (
+                {loading ? (
+                  <p className="no-categories">Loading categories...</p>
+                ) : error ? (
+                  <p>{error}</p>
+                ) : categories?.data?.length > 0 ? (
                   categories.data.map((link, index) => (
-                    <Link href={`/c/${link?.id}`} className={`${Styles?.linkText} text-sm md:text-base pt-5 flex`} key={index}>
+                    <Link
+                      href={`/c/${link?.id}`}
+                      className={`${Styles?.linkText} text-sm md:text-base pt-5 flex categoryLink hover:underline`}
+                      key={link?.name?.en + index}
+                    >
                       {link?.name?.en || link?.description}
-                    </Link >
+                    </Link>
                   ))
                 ) : (
-                    <p className={`${Styles?.linkText} pt-5`}>No categories available.</p>
+                  <p className="no-categories">No categories available!</p>
                 )}
+
             </div>
             </CustomDrawer>  
             </div>
