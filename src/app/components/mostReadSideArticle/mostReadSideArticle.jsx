@@ -4,15 +4,6 @@ import Link from 'next/link';
 import Styles from "../mostRead/mostRead.module.css";
 
 const MostReadSideArticle = ({ articles = [] }) => {
-  const [descriptions, setDescriptions] = useState([]);
-
-  useEffect(() => {
-    if (articles.length > 0) {
-      setDescriptions(
-        articles.map(article => article?.description || article?.htmlDescription)
-      );
-    }
-  }, [articles]);
 
   return (
     <div className={Styles?.sideArticles}>
