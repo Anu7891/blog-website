@@ -75,13 +75,13 @@ class Header extends Component {
             </div>
 
             {/* -------------------- Links------------------------- */}
-            {/* <div className={Styles?.linkContainer}>
+            <div className={Styles?.linkContainer}>
               {loading ? (
                 <p>Loading categories...</p>
               ) : error ? (
                 <p>{error}</p>
               ) : (
-                categories?.length > 0 && categories.map((link, index) => (
+                categories?.data?.length > 0 && categories?.data?.map((link, index) => (
                   <p
                     className="text-sm md:text-base hover:underline"
                     key={link?.name?.en + index}
@@ -90,7 +90,7 @@ class Header extends Component {
                   </p>
                 ))
               )}
-            </div> */}
+            </div>
           </div>
         </div>
 
@@ -105,11 +105,15 @@ class Header extends Component {
             drawerClassName={Styles?.customDrawerClass}  //Custom class for content
             >
             <div className={Styles?.drawerContent}>
-                {categories.map((link, index) => (
-                <p className={`${Styles?.linkText} text-sm md:text-base`} key={index}>
-                    {link?.name?.en || link?.description}
-                </p>
-                ))}
+                {categories?.data?.length > 0 ? (
+                  categories.data.map((link, index) => (
+                    <p className={`${Styles?.linkText} text-sm md:text-base pt-5`} key={index}>
+                      {link?.name?.en || link?.description}
+                    </p>
+                  ))
+                ) : (
+                    <p className={`${Styles?.linkText} pt-5`}>No categories available.</p>
+                )}
             </div>
             </CustomDrawer>  
             </div>

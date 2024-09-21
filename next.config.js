@@ -1,6 +1,6 @@
 // next.config.js
 module.exports = {
-    output: 'export',
+    // output: 'export',
     images: {
         domains: ['cdn.shoppd.net', "www.cryptoblogs.io"],
     },

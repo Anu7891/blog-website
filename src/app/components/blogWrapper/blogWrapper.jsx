@@ -13,7 +13,11 @@ const BlogWrapper = ({firstSectionBlogs =[]}) => {
      
         <div className={`${Styles?.newsGrid} pt-5 mt-5`}>
             <div className={`${Styles?.mainArticle}`}>
-                <Link href={firstSectionBlogs[0]?.code} className={`${Styles?.articleImage}`} style={{ backgroundImage: `url(${firstSectionBlogs[0].image})` }}>
+                <Link
+                    href={`/${firstSectionBlogs[0]?.code}`}
+                    className={Styles?.articleImage}
+                    style={{ backgroundImage: `url(${firstSectionBlogs[0]?.image || ''})` }}
+                >
                       <div className={`${Styles?.overlayInner}`}>
                         <p className={`${Styles?.description} mb-0 md:w-11/12 md:text-3xl lg:text-4xl mt-0`}>{firstSectionBlogs[0].title}</p>
                       </div>

@@ -46,7 +46,7 @@ export default async function MainBlogDetails({ params }) {
 
         return (
             <Wrapper>
-                {/* Header */}
+                {/* ---------------------------------- Header---------------------------------- */}
                 <Header />
 
                 <div className="md:w-full flex">
@@ -54,9 +54,9 @@ export default async function MainBlogDetails({ params }) {
 
                     {/* Middle Section */}
                     <div className="middleWrapper">
-                        <div className="px-4 md:px-0 mb-5 md:pb-6">
+                        <div className="px-4 md:px-0 mb-5 md:pb-6 md:pt-0 pt-8">
                             {/* Title */}
-                            <p className={Styles?.title}>{title}</p>
+                            <p className={`${Styles?.title} capitalize`}>{title}</p>
 
                             {/* Image */}
                             {image && (

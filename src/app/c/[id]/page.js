@@ -50,7 +50,7 @@ export default async function CategoryPage({ params }) {
 
                 {/* Middle Section */}
                 <div className="middleWrapper">
-                    <div className="px-4 pt-5 pb-3">
+                    <div className="px-4 pt-24 md:pt-5 pb-3">
                         <p className={`${Styles?.categoryTitle} pb-3`}>{catData?.categoryName}</p>
                         <CustomImage
                             src={catData?.categoryImage}
