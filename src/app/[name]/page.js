@@ -11,78 +11,83 @@ export async function generateStaticParams() {
         const res = await fetch(`${API_BASE_URL}`);
         const articles = await res.json();
 
-        if (!articles?.data) {
+        if (!articles?.data || articles.data.length === 0) {
             console.error("No articles found");
-            return []; // Return an empty array if no articles
+            return []; // Return an empty array if no articles are available
         }
 
         return articles.data.map((article) => ({
-            name: article.code, // Assuming 'code' is the unique identifier
+            name: article.code, // Assuming 'code' is the unique identifier for each article
         }));
     } catch (error) {
         console.error("Error fetching articles:", error);
-        return []; // Return an empty array if there's an error
+        return []; // Return an empty array in case of an error
     }
 }
-
 
 // Fetch article data based on the 'name' dynamically during rendering
 export default async function MainBlogDetails({ params }) {
     const { name } = params;
 
     // Fetch the specific article based on the 'name' (code)
-    const res = await fetch(`${API_BASE_URL}?code=${name}`, {
-        next: { revalidate: 60 * 60 }, // Revalidate every hour
-    });
+    try {
+        const res = await fetch(`${API_BASE_URL}?code=${name}`, {
+            next: { revalidate: 60 * 60 }, // Revalidate every hour
+        });
 
-    const article = await res.json();
+        const article = await res.json();
 
-    if (!article?.data?.[0]) {
-        return <div>Article not found</div>;
-    }
+        // Check if article exists
+        if (!article?.data?.[0]) {
+            return <div>Article not found</div>;
+        }
 
-    const { title, image, description, htmlDescription } = article.data[0];
+        const { title, image, description, htmlDescription } = article.data[0];
 
-    return (
-        <Wrapper>
-            {/* Header */}
-            <Header />
+        return (
+            <Wrapper>
+                {/* Header */}
+                <Header />
 
-            <div className="md:w-full flex">
-                <div className="commonwrapper" />
+                <div className="md:w-full flex">
+                    <div className="commonwrapper" />
 
-                {/* Middle Section */}
-                <div className="middleWrapper">
-                    <div className="px-4 md:px-0 mb-5 md:pb-6">
-                        {/* Title */}
-                        <p className={Styles?.title}>{title}</p>
+                    {/* Middle Section */}
+                    <div className="middleWrapper">
+                        <div className="px-4 md:px-0 mb-5 md:pb-6">
+                            {/* Title */}
+                            <p className={Styles?.title}>{title}</p>
 
-                        {/* Image */}
-                        {image && (
-                            <div className={`${Styles?.imgWrapper} col-12 px-0 pb-5`}>
-                                <CustomImage
-                                    src={image}
-                                    alt={title}
-                                    title={title}
-                                    height={500}
-                                    width={500}
-                                    priority
-                                    unoptimized
-                                />
-                            </div>
-                        )}
+                            {/* Image */}
+                            {image && (
+                                <div className={`${Styles?.imgWrapper} col-12 px-0 pb-5`}>
+                                    <CustomImage
+                                        src={image}
+                                        alt={title}
+                                        title={title}
+                                        height={500}
+                                        width={500}
+                                        priority
+                                        unoptimized
+                                    />
+                                </div>
+                            )}
 
-                        {/* Description */}
-                        <p
-                            dangerouslySetInnerHTML={{ __html: description || htmlDescription }}
-                            style={{ fontFamily: 'Lato, sans-serif', fontSize: '16px' }}
-                            className={Styles?.description}
-                        />
+                            {/* Description */}
+                            <p
+                                dangerouslySetInnerHTML={{ __html: description || htmlDescription }}
+                                style={{ fontFamily: 'Lato, sans-serif', fontSize: '16px' }}
+                                className={Styles?.description}
+                            />
+                        </div>
                     </div>
-                </div>
 
-                <div className="commonwrapper" />
-            </div>
-        </Wrapper>
-    );
+                    <div className="commonwrapper" />
+                </div>
+            </Wrapper>
+        );
+    } catch (error) {
+        console.error("Error fetching article:", error);
+        return <div>Failed to load article</div>;
+    }
 }
