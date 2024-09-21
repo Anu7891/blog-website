@@ -81,7 +81,7 @@ async function SubCategoriesLists() {
                      </div>
                    <div className={`${Styles?.subCategoriesWrapper} md:flex `}>
                     {category?.blogDetails?.length > 0 && category?.blogDetails?.map((item,index) => (
-                        <div key={item?.id} className=' col-12 md:col-4 px-0'>
+                        <div key={item?.id} className={`col-4 px-0 ${Styles?.subWrapper}`}>
                             <div className={`${Styles?.imageClass} col-12 px-0`}  >
                             <Image src={item?.image} height={250} width={250} unoptimized /> 
                             </div>

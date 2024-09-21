@@ -12,9 +12,10 @@ export async function generateStaticParams() {
     const res = await fetch(`${API_BASE_URL}`); // Assuming you have an API to get all articles
     const articles = await res.json();
 
+
     // Return them in the format expected by Next.js
-    return articles.map((article) => ({
-        name: article.code, // Assuming 'code' is the unique identifier for each article
+    return articles.data.map((article) => ({
+        name: article?.code, // Assuming 'code' is the unique identifier for each article
     }));
 }
 
