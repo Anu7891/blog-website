@@ -13,17 +13,18 @@ export async function generateStaticParams() {
 
         if (!articles?.data) {
             console.error("No articles found");
-            return [];
+            return []; // Return an empty array if no articles
         }
 
         return articles.data.map((article) => ({
             name: article.code, // Assuming 'code' is the unique identifier
         }));
     } catch (error) {
-        console.error("Error fetching articles for static paths:", error);
-        return [];
+        console.error("Error fetching articles:", error);
+        return []; // Return an empty array if there's an error
     }
 }
+
 
 // Fetch article data based on the 'name' dynamically during rendering
 export default async function MainBlogDetails({ params }) {
