@@ -40,7 +40,7 @@ export default async function CategoryPage({ params }) {
         notFound(); // Handle no articles found
     }
 
-    const { catData } = articles;
+    const { catData , data} = articles;
 
     return (
         <Wrapper>
@@ -61,6 +61,39 @@ export default async function CategoryPage({ params }) {
                             priority={true} // Optimize image for faster load
                             className={`${Styles?.customImageClass}`}
                         />
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6">
+                            {data?.map((item, index) => (
+                                <a
+                                    href={`/${item?.code}`}
+                                    key={index}
+                                    className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                                >
+                                    {/* Image on top */}
+                                    <div className="h-54 bg-gray-200">
+                                        {item?.image ? (
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="flex items-center justify-center h-full text-gray-400">
+                                                No Image Available
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Title at bottom */}
+                                    <div className="p-4">
+                                        <h2 className="text-lg font-semibold text-gray-800">
+                                            {item?.title}
+                                        </h2>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+
                     </div>
                 </div>
 
