@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import Wrapper from "../../hoc/wrapper";
 import Styles from "./header.module.css";
-import { CLOSE_ICON, HAMBURGER_ICON } from "../../lib/config";
+import { CLOSE_ICON, HAMBURGER_ICON, LOGO_IMG } from "../../lib/config";
 import CustomDrawer from "../drawer/customDrawer";
 import CustomImage from "../image/image";
 import Link from "next/link";
@@ -69,14 +69,13 @@ class Header extends Component {
                 <CustomImage src={CLOSE_ICON} alt="close-icon" title="close-icon" height={20} width={20} onClick={this.handleCloseSwipableDrawer} />
                 )}
               </div>
-              <Link href={'/'} className="col-9 md:col-12 flex md:justify-center md:pl-0 pl-4" >
-                <span className={Styles?.headerText}>Crypto</span>
-                <span className={Styles?.blogText}>Blogs</span>
+              <Link href={'/'} className="col-9 md:col-12 flex md:justify-center md:pl-0 pl-4 md:mb-3" >
+                <img src={LOGO_IMG} alt="logo_img" title="logo_img" height={200} width={200} className="logoImg"/>
               </Link>
             </div>
 
             {/* -------------------- Links------------------------- */}
-            <div className={Styles?.linkContainer}>
+            {/* <div className={Styles?.linkContainer}>
               {loading ? (
                 <p>Loading categories...</p>
               ) : error ? (
@@ -91,7 +90,7 @@ class Header extends Component {
                   </p>
                 ))
               )}
-            </div>
+            </div> */}
           </div>
         </div>
 

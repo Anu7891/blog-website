@@ -4,6 +4,7 @@ import BlogWrapper from '../blogWrapper/blogWrapper';
 import { MostReadSection } from '../mostRead/MostRead';
 import BlogThirdSection from '../blogThirdSection/blogThirdSection';
 import { API_BASE_URL } from '../../../../lib/config';
+import SubCategoriesLists from '../subCategoriesList/subCategoriesList';
 
 
 
@@ -18,8 +19,8 @@ async function HomePageMiddleSection() {
     console.error("Failed to fetch blogs:", err);
   }
 
-  const firstSectionBlogs = blogs.slice(0, 5);
-  const secondSectionBlogs = blogs.slice(6, 10);
+  const firstSectionBlogs = blogs.data?.slice(0, 5);
+  const secondSectionBlogs = blogs.data?.slice(6, 10);
 
   return (
 
@@ -34,7 +35,8 @@ async function HomePageMiddleSection() {
         <MostReadSection blogs={secondSectionBlogs} />
 
         {/* ------------------------- Second Blog Section --------------------- */}
-        {/* <BlogThirdSection /> */}
+        <SubCategoriesLists/>
+
 
       </div>
 
