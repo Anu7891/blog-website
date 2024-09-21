@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 
 
     // Return them in the format expected by Next.js
-    return articles.data.map((article) => ({
+    return articles?.data?.map((article) => ({
         name: article?.code, // Assuming 'code' is the unique identifier for each article
     }));
 }
