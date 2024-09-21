@@ -42,6 +42,8 @@ export default async function CategoryPage({ params }) {
 
     const { catData , data} = articles;
 
+  
+
     return (
         <Wrapper>
             <Header />
@@ -50,17 +52,26 @@ export default async function CategoryPage({ params }) {
 
                 {/* Middle Section */}
                 <div className="middleWrapper">
-                    <div className="px-4 pt-24 md:pt-5 pb-3">
+                    <div className="px-4 md:px-0 pt-24 md:pt-5 pb-3">
                         <p className={`${Styles?.categoryTitle} pb-3`}>{catData?.categoryName}</p>
-                        <CustomImage
-                            src={catData?.categoryImage}
-                            height={500}
-                            width={500}
-                            title={catData?.categoryName}
-                            alt={catData?.categoryName}
-                            priority={true} // Optimize image for faster load
-                            className={`${Styles?.customImageClass}`}
-                        />
+                        <div className='flex pb-6'>
+                            {catData?.categoryDescription || catData?.description ? (
+                                <p className='col-6 px-0'>{catData.categoryDescription || catData.description}</p>
+                            ) : (
+                                <p className='col-6 px-0 flex justify-center items-center noDescriptionsFound pr-5'>No Descriptions Found!</p>
+                            )}
+                            <CustomImage
+                                src={catData?.categoryImage}
+                                height={500}
+                                width={500}
+                                title={catData?.categoryName}
+                                alt={catData?.categoryName}
+                                priority={true} // Optimize image for faster load
+                                className={`${Styles?.customImageClass} col-6 px-0`}
+                            />
+
+                        </div>
+
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6">
                             {data?.map((item, index) => (
