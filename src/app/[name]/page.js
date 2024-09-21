@@ -5,61 +5,52 @@ import CustomImage from '../../../components/image/image';
 import Header from '../../../components/header/header';
 import Styles from "../styles/blogDetails.module.css";
 
+// Fetch all possible article paths during the build
 export async function generateStaticParams() {
     try {
         const res = await fetch(`${API_BASE_URL}`);
         const articles = await res.json();
 
-        // Check if the data exists and is in the correct format
         if (!articles?.data) {
-            console.error("Failed to fetch articles or no data found.");
+            console.error("No articles found");
             return [];
         }
 
-        // Return the dynamic paths based on the article codes
-        return articles?.data?.map((article) => ({
-            name: article?.code, // Assuming 'code' is the unique identifier for each article
+        return articles.data.map((article) => ({
+            name: article.code, // Assuming 'code' is the unique identifier
         }));
     } catch (error) {
-        console.error("Error fetching dynamic params:", error);
+        console.error("Error fetching articles for static paths:", error);
         return [];
     }
 }
 
+// Fetch article data based on the 'name' dynamically during rendering
 export default async function MainBlogDetails({ params }) {
     const { name } = params;
 
-    let article;
-    try {
-        // Fetch the article data based on the article code (name)
-        const res = await fetch(`${API_BASE_URL}?code=${name}`, {
-            next: { revalidate: 1 * 60 * 60 }, // 1 hour revalidation
-        });
+    // Fetch the specific article based on the 'name' (code)
+    const res = await fetch(`${API_BASE_URL}?code=${name}`, {
+        next: { revalidate: 60 * 60 }, // Revalidate every hour
+    });
 
-        article = await res.json();
+    const article = await res.json();
 
-        // Check if the response contains valid data
-        if (!article?.data?.[0]) {
-            console.error("Article data not found for code:", name);
-            return <div>Article not found</div>;
-        }
-    } catch (error) {
-        console.error("Error fetching article:", error);
-        return <div>Failed to load article data</div>;
+    if (!article?.data?.[0]) {
+        return <div>Article not found</div>;
     }
 
-    // Destructure article data for cleaner usage
-    const { title, image, description, htmlDescription } = article?.data?.[0];
+    const { title, image, description, htmlDescription } = article.data[0];
 
     return (
         <Wrapper>
-            {/* ----------------------------- Header -------------------------------- */}
+            {/* Header */}
             <Header />
 
             <div className="md:w-full flex">
                 <div className="commonwrapper" />
 
-                {/* ------------------- Blogs Middle Section ------------------------------------ */}
+                {/* Middle Section */}
                 <div className="middleWrapper">
                     <div className="px-4 md:px-0 mb-5 md:pb-6">
                         {/* Title */}
