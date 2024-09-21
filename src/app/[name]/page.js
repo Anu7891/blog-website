@@ -51,11 +51,11 @@ export default async function MainBlogDetails({ params }) {
                         <div className={`${Styles?.imgWrapper} col-12 px-0 pb-5`}>
                             <CustomImage src={article?.data?.[0]?.image} alt={article?.data?.[0]?.title} title={article?.data?.[0]?.title} height={500} width={500} priority unoptimized />
                         </div>
-                        {/* <p
+                        <p
                             dangerouslySetInnerHTML={{ __html: article?.data?.[0]?.description || article?.data?.[0]?.htmlDescription }}
                             style={{ fontFamily: 'Lato, sans-serif', fontSize: '16px' }}
                             className={Styles?.description}
-                        /> */}
+                        />
                     </div>
                 </div>
 
