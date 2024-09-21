@@ -83,5 +83,10 @@ object-fit: cover;
       max-width: 100% !important;
 
     }
+    .categoryTitle {
+     font-size: 28px;
+     line-height: 36px;
+     font-weight: 700;
+    }
 }
 
