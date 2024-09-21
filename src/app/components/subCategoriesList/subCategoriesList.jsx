@@ -3,6 +3,7 @@ import { SUBCATEGORIES_URL } from '../../../../lib/config';
 import Wrapper from '../../../../hoc/wrapper';
 import Image from 'next/image';
 import Styles from "./subCategories.module.css"
+import Link from 'next/link';
 
 
 async function SubCategoriesLists() {
@@ -77,7 +78,7 @@ async function SubCategoriesLists() {
                  <div className='mb-4 px-3 md:px-0'>
                     <div className='flex justify-between items-center borderClass mb-6'>
                         <p className={Styles?.categoryName}>{category?.categoryName}</p>
-                        <p className='m-0 cursor-pointer'>View All</p>
+                        <Link href={`/c/${category.categoryId}`} className='m-0 cursor-pointer' >View All</Link>
                      </div>
                    <div className={`${Styles?.subCategoriesWrapper} md:flex `}>
                     {category?.blogDetails?.length > 0 && category?.blogDetails?.map((item,index) => (
