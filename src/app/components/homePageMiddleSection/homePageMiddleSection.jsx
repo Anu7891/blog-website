@@ -13,7 +13,7 @@ async function HomePageMiddleSection() {
   let blogs = [];
 
   try {
-    const response = await fetch(`${API_BASE_URL}?_=${new Date().getTime()}`);
+    const response = await fetch(`${API_BASE_URL}?_= ${new Date().getTime()}`);
     blogs = await response.json();
   } catch (err) {
     console.error("Failed to fetch blogs:", err);
