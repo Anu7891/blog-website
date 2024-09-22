@@ -23,10 +23,10 @@ async function SubCategoriesLists() {
                 <div className='mb-4 px-3 md:px-0' key={category?.categoryName + index + "categoryIndex"}>
                     <div className='flex justify-between items-center borderClass mb-6'>
                         <p className={Styles?.categoryName}>{category?.categoryName}</p>
-                        <Link href={`/c/${category.categoryId}`} className='m-0 cursor-pointer' >View All</Link>
+                        <Link href={`/c/${category.categoryId}`} className='m-0 cursor-pointer'>View All</Link>
                      </div>
                    <div className={`${Styles?.subCategoriesWrapper} md:flex `}>
-                    {category?.blogDetails?.length > 0 && category?.blogDetails?.map((item,index) => (
+                    {category?.blogDetails?.length > 0 && category?.blogDetails?.slice(0,3)?.map((item,index) => (
                         <div key={item?.id + index} className={`col-4 px-0 ${Styles?.subWrapper}`}>
                             <div className={`${Styles?.imageClass} col-12 px-0`}  >
                             <Image src={item?.image} height={250} width={250} unoptimized /> 
