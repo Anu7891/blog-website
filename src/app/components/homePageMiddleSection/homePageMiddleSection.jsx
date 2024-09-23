@@ -33,7 +33,7 @@ async function HomePageMiddleSection() {
         {/* ------------------------- Second Blog Section --------------------- */}
         <MostReadSection blogs={secondSectionBlogs} />
 
-        {/* ------------------------- Second Blog Section --------------------- */}
+        {/* ------------------------- SubCategories Blog Section --------------------- */}
         <SubCategoriesLists/>
 
 

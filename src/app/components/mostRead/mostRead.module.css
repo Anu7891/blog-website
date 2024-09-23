@@ -106,8 +106,13 @@ gap: 20px;
      gap:20px;
 }
 
+.sideArticle {
+height:330px !important;
+}
+
+
 .sideArticle > img {
-    height:250px !important;
+    height:100% !important;
     cursor: pointer;
     width: 100%  !important;
     border-radius: 12px;

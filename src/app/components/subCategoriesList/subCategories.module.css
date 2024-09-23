@@ -26,9 +26,12 @@ object-fit: cover;
     cursor: pointer;
     
 }
-.customImageClass{
-    aspect-ratio: 1.82/1;
-
+.customImageClass {
+aspect-ratio: 256/183;
+}
+.customImageClass > img {
+height: 100% !important;
+width: 100% !important;
 }
 
 .categoryTitle {
@@ -42,34 +45,15 @@ object-fit: cover;
   width:100% !important;
 }
 
-@media only screen and (min-width:1200px) and (max-width:1280px) {
-.imageClass {
- height: 230px !important;
- width: 230px !important;
+
+
+.customImage {
+  aspect-ratio: 1/1 !important;
 
 }
-
-
-}
-
-@media only screen and (min-width:1130px) and (max-width:1200px) {
-.imageClass {
- height: 220px !important;
- width: 220px !important;
-
-}
-
-
-}
-
-@media only screen and (min-width:992px) and (max-width:1130px) {
-.imageClass {
- height: 215px !important;
- width: 215px !important;
-
-}
-
-
+.customImage > img {
+  height: 100% !important;
+  width: 100% !important;
 }
 
 @media only screen and (max-width:767.95px) {
