@@ -2,16 +2,11 @@
     font-size: 36px;
     font-weight: 700;
     line-height: 42px;
-    padding: 40px 0 20px;
+    padding: 36px 0 20px;
 }
 
 
-.imgWrapper > div > img {
-    width:100% !important;
-    border-radius: 12px;
-    height: 500px;
-  
-}
+
 
 .description > h1 {
     font-size: 1.25rem !important;
@@ -27,9 +22,53 @@
     font-weight: 700;
     padding:10px 0;
 
+}
+.description > p {
+    padding-bottom: 0.5rem;
+    
+}
 
+.description > p > strong {
+      font-size: 1.25rem !important;
 
 }
+
+.description > ol  {
+     padding-bottom: 0.5rem; 
+
+}
+.description > ul  {
+     margin-left: 1rem !important; 
+
+}
+.description > ul > li  {
+     padding-bottom: 0.25rem; 
+       margin-left: 1rem !important; 
+     list-style: auto;
+
+}
+
+
+.description > ol {
+    margin-left: 1rem !important;  
+}
+
+.description > ol > li  {
+     padding-bottom: 0.25rem; 
+      margin-left: 1rem !important; 
+     list-style: auto;
+
+}
+
+.imgWrapper {
+    aspect-ratio: 256/183 ;
+}
+.imgWrapper > img {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+
 
 @media only screen and (max-width:767.95px) {
 
@@ -39,26 +78,19 @@
     padding: 64px 0 20px !important;
 }
 
-.imgWrapper > div > img {
-    height: 350px !important; 
-}
 
 
 
 }
 
 @media only screen and (min-width:1200px) and (max-width:1440px) {
-.imgWrapper > div > img {
-    height: 530px !important; 
-}
+
 
 
 
 }
 
 @media only screen and (min-width:1440px)  {
-.imgWrapper > div > img {
-    height: 560px !important; 
-}
+
 
 }

@@ -42,7 +42,8 @@ export default async function MainBlogDetails({ params }) {
             return <div>Article not found</div>;
         }
 
-        const { title, image, description, htmlDescription } = article.data[0];
+        const { title, image, description, htmlDescription } = article?.data?.[0];
+        
 
         return (
             <Wrapper>
@@ -56,7 +57,8 @@ export default async function MainBlogDetails({ params }) {
                     <div className="middleWrapper">
                         <div className="px-4 md:px-0 mb-5 md:pb-6 md:pt-0 pt-8">
                             {/* Title */}
-                            <p className={`${Styles?.title} capitalize`}>{title}</p>
+                            {title && 
+                            <p className={`${Styles?.title} capitalize`}>{title}</p>}
 
                             {/* Image */}
                             {image && (
@@ -74,11 +76,11 @@ export default async function MainBlogDetails({ params }) {
                             )}
 
                             {/* Description */}
+                            {htmlDescription || description ?
                             <p
-                                dangerouslySetInnerHTML={{ __html: description || htmlDescription }}
-                                style={{ fontFamily: 'Lato, sans-serif', fontSize: '16px' }}
+                                dangerouslySetInnerHTML={{ __html: htmlDescription || description }}
                                 className={Styles?.description}
-                            />
+                            /> : null}
                         </div>
                     </div>
 
