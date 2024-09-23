@@ -13,7 +13,7 @@ export const MostReadSection = ({blogs}) => {
     <Wrapper>
     <div className='most-read-wrapper pt-2 md:mt-4 md:pt-4 px-3 md:px-0'>
           <p className={`${Styles?.title} pb-1`}>Most Read</p>
-            <div className={`${Styles?.mostReadArticleWrapper} py-4 my-4`}>
+            <div className={`${Styles?.mostReadArticleWrapper} py-6 md:py-4 md:my-4`}>
                  <MostReadSideArticle  articles={blogs}/> 
             </div>
     

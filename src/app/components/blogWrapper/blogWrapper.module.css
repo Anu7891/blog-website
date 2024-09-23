@@ -103,12 +103,13 @@ gap: 20px;
      .newsGrid {
         grid-template-columns: 1fr;
         width: 100vw !important;
+          gap:16px !important;
     }
     .mainArticle {
-        padding:3.75rem 1rem  0.25rem !important;
+        padding:4.25rem 1rem  0.25rem !important;
     }
     .articleImage {
-        height: 350px  !important;
+        height: 330px  !important;
         width:100% !important;
     }
      .sideArticles {
@@ -123,9 +124,13 @@ gap: 20px;
     }
     
     .sideArticle {
-    height: 250px;
+    height: 330px;
     position: relative;
-    margin-bottom: 0 !important;
+    margin-bottom: 16px !important;
+   }
+   .sideArticle > a {
+    height: 100% !important;
+    width:100% !important;
    }
 
    .description {
