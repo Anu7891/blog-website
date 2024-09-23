@@ -85,7 +85,7 @@ export default async function CategoryPage({ params }) {
                             {data?.map((item, index) => (
                                 <a
                                     href={`/${item?.code}`}
-                                    key={index}
+                                    key={ item?.code + index + item?.title + "subCategoriesData"}
                                     className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
                                 >
                                     {/* Image on top */}
