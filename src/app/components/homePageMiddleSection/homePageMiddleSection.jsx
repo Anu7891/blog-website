@@ -2,7 +2,6 @@ import React from 'react'
 import Wrapper from '../../../../hoc/wrapper';
 import BlogWrapper from '../blogWrapper/blogWrapper';
 import { MostReadSection } from '../mostRead/MostRead';
-import BlogThirdSection from '../blogThirdSection/blogThirdSection';
 import { API_BASE_URL } from '../../../../lib/config';
 import SubCategoriesLists from '../subCategoriesList/subCategoriesList';
 
