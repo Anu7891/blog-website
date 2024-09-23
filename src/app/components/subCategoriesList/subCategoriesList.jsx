@@ -27,7 +27,7 @@ async function SubCategoriesLists() {
                      </div>
                     <div className="md:flex flex-wrap -mx-2">
                         {category?.blogDetails?.length > 0 && category?.blogDetails?.slice(0, 3)?.map((item, index) => (
-                            <div key={item?.id + index} className="w-full md:w-1/3 px-2 mb-5 md:mb-6">
+                            <div key={item?.id + index + item?.title} className="w-full md:w-1/3 px-2 mb-5 md:mb-6">
                                 <div className={`${Styles?.customImage} w-full`}>
                                     <Image src={item?.image} height={250} width={250} className="w-full h-auto rounded" unoptimized />
                                 </div>
