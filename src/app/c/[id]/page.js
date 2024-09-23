@@ -54,27 +54,33 @@ export default async function CategoryPage({ params }) {
                 <div className="middleWrapper">
                     <div className="px-4 md:px-0 pt-24 md:pt-5 pb-3">
                         <p className={`${Styles?.categoryTitle} pb-3`}>{catData?.categoryName}</p>
-                        <div className='flex pb-6'>
+                        <div className="flex pb-0 md:pb-3 flex-wrap col-span-12 px-0">
                             {catData?.categoryDescription || catData?.description ? (
-                                <p className='col-6 px-0'>{catData.categoryDescription || catData.description}</p>
+                                <p className="w-full md:w-1/2 pr-3">
+                                    {catData.categoryDescription || catData.description}
+                                </p>
                             ) : (
-                                <p className='col-6 px-0 flex justify-center items-center noDescriptionsFound pr-5'>No Descriptions Found!</p>
+                                <p className="w-full md:w-1/2 flex justify-center items-center noDescriptionsFound pr-5">
+                                    No Descriptions Found!
+                                </p>
                             )}
-                            <div className={`${Styles?.customImageClass} col-6 px-0`}>\
-                            <CustomImage
-                                src={catData?.categoryImage}
-                                height={500}
-                                width={500}
-                                title={catData?.categoryName}
-                                alt={catData?.categoryName}
-                                priority={true} // Optimize image for faster load
-                               
-                            />
-                            </div>
 
+                            {catData?.categoryImage && (
+                                <div className={`${Styles?.customImageClass} w-full md:w-1/2 px-0`}>
+                                    <CustomImage
+                                        src={catData?.categoryImage}
+                                        height={500}
+                                        width={500}
+                                        title={catData?.categoryName}
+                                        alt={catData?.categoryName}
+                                        priority={true}
+                                    />
+                                </div>
+                            )}
                         </div>
 
 
+                       {data?.length > 0 ? 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6">
                             {data?.map((item, index) => (
                                 <a
@@ -105,7 +111,7 @@ export default async function CategoryPage({ params }) {
                                     </div>
                                 </a>
                             ))}
-                        </div>
+                        </div> : null}
 
                     </div>
                 </div>

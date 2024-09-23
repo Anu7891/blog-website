@@ -85,6 +85,15 @@ border-bottom: 4px solid #000;
       font-weight: 600;
   }
 
+  .logoImgClass {
+    height: 80px;
+    width: 250px;
+  }
+   .logoImgClass > img {
+     height: 100%  !important;
+     width: 100% !important;
+  }
+
   @media only screen and (max-width:1023.95px) {
     .categoryLink {
     font-size: 17px !important;
@@ -107,9 +116,13 @@ border-bottom: 4px solid #000;
      line-height: 1.5rem;
 
     }
-.logoImg {
-   height: 52px !important;
-}
+
+
+ .logoImgClass {
+    height: 54px !important;
+    width: 210px !important;
+  }
+  
 
  .categoryLink {
     font-size: 22px !important;

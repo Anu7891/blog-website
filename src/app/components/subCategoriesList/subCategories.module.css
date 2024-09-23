@@ -88,5 +88,8 @@ object-fit: cover;
      line-height: 36px;
      font-weight: 700;
     }
+    .customImageClass {
+      display: none !important;
+    }
 }
 
