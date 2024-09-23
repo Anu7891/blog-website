@@ -60,6 +60,7 @@ export default async function CategoryPage({ params }) {
                             ) : (
                                 <p className='col-6 px-0 flex justify-center items-center noDescriptionsFound pr-5'>No Descriptions Found!</p>
                             )}
+                            <div className={`${Styles?.customImageClass} col-6 px-0`}>\
                             <CustomImage
                                 src={catData?.categoryImage}
                                 height={500}
@@ -67,8 +68,9 @@ export default async function CategoryPage({ params }) {
                                 title={catData?.categoryName}
                                 alt={catData?.categoryName}
                                 priority={true} // Optimize image for faster load
-                                className={`${Styles?.customImageClass} col-6 px-0`}
+                               
                             />
+                            </div>
 
                         </div>
 

@@ -14,7 +14,6 @@ const CustomImage = ({
   ...other
 }) => {
   return (
-    <div onClick={onClick} className={className} style={{ cursor: 'pointer' }}>
       <Image
         src={src}
         width={width}
@@ -23,9 +22,9 @@ const CustomImage = ({
         alt={alt}
         priority={priority}
         unoptimized
+        onClick={onClick}
         {...other}
       />
-    </div>
   );
 };
 

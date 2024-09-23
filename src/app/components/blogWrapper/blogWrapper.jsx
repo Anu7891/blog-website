@@ -11,7 +11,7 @@ const BlogWrapper = ({firstSectionBlogs =[]}) => {
 
     return (
      
-        <div className={`${Styles?.newsGrid} pt-5 mt-5`}>
+        <div className={`${Styles?.newsGrid} pt-5 mt-4`}>
             <div className={`${Styles?.mainArticle}`}>
                 <Link
                     href={`/${firstSectionBlogs[0]?.code}`}
@@ -19,7 +19,7 @@ const BlogWrapper = ({firstSectionBlogs =[]}) => {
                     style={{ backgroundImage: `url(${firstSectionBlogs[0]?.image || ''})` }}
                 >
                       <div className={`${Styles?.overlayInner}`}>
-                        <p className={`${Styles?.description} mb-0 md:w-11/12 md:text-3xl lg:text-4xl mt-0`}>{firstSectionBlogs[0].title}</p>
+                        <p className={`${Styles?.description} mb-0 md:w-11/12 md:text-3xl lg:text-4xl mt-0`}>{firstSectionBlogs[0]?.title}</p>
                       </div>
                 </Link>
             </div>

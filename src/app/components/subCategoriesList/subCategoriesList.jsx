@@ -10,7 +10,7 @@ async function SubCategoriesLists() {
     let subCategories = [];
 
     try{
-        const response = await fetch(SUBCATEGORIES_URL);
+        const response = await fetch(`${SUBCATEGORIES_URL}?_= ${new Date().getTime()}`);
         subCategories = await response.json();
     } catch (err) {
         console.error("Failed to fetch categories:", err);
