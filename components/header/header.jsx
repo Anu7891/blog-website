@@ -67,8 +67,10 @@ class Header extends Component {
                 <CustomImage src={CLOSE_ICON} alt="close-icon" title="close-icon" height={20} width={20} onClick={this.handleCloseSwipableDrawer} />
                 )}
               </div>
-              <Link href={'/'} className="col-9 md:col-12 flex md:justify-center md:pl-0 pl-4 md:mb-3" >
-                <img src={LOGO_IMG} alt="logo_img" title="logo_img" height={200} width={200} className="logoImg"/>
+              <Link href={'/'} className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3" >
+                <p className="logoImgClass">
+                <CustomImage src={LOGO_IMG} alt="logo_img" title="logo_img" height={80} width={250} className="logoImg"/>
+                </p>
               </Link>
             </div>
 
