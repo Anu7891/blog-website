@@ -84,7 +84,7 @@ export default async function CategoryPage({ params }) {
 
 
                         {/* ------------------------------- Related Articles Title ------------------------ */}
-                        <CustomTitle title={`Related ${catData?.categoryName} Articles`} className={"mt-2"} />
+                        <CustomTitle title={`Related ${catData?.categoryName} Articles`} className={"mt-4 md:mt-2"} />
 
                         {/* ------------------------------- Related Articles Data ------------------------ */}
                        {data?.length > 0 ? 
