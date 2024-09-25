@@ -4,6 +4,8 @@ import { API_BASE_URL } from '../../../lib/config';
 import CustomImage from '../../../components/image/image';
 import Header from '../../../components/header/header';
 import Styles from "../styles/blogDetails.module.css";
+import CommonWrapper from '../../../hoc/commonWrapper';
+import MiddleWrapper from '../../../hoc/middleWrapper';
 
 // Fetch all possible article paths during the build
 export async function generateStaticParams() {
@@ -51,10 +53,11 @@ export default async function MainBlogDetails({ params }) {
                 <Header />
 
                 <div className="md:w-full flex">
-                    <div className="commonwrapper" />
+                    
+                    <CommonWrapper />
 
                     {/* Middle Section */}
-                    <div className="middleWrapper">
+                    <MiddleWrapper>
                         <div className="px-4 md:px-0 mb-5 md:pb-6 md:pt-0 pt-8">
                             {/* Title */}
                             {title && 
@@ -82,9 +85,9 @@ export default async function MainBlogDetails({ params }) {
                                 className={Styles?.description}
                             /> : null}
                         </div>
-                    </div>
+                    </MiddleWrapper>
 
-                    <div className="commonwrapper" />
+                     <CommonWrapper/>
                 </div>
             </Wrapper>
         );

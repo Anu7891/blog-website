@@ -93,6 +93,25 @@ border-bottom: 4px solid #000;
      height: 100%  !important;
      width: 100% !important;
   }
+  .titleClass {
+    padding-bottom: 0.625rem;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .linkText {
+    padding-bottom: 0.625rem;
+  }
+
+  .subCategoriesImgWrapper {
+    aspect-ratio: 4/3;
+  }
+  .subCategoriesImgWrapper > img {
+   height: 100% !important;
+   width: 100% !important;
+  }
+
 
   @media only screen and (max-width:1023.95px) {
     .categoryLink {

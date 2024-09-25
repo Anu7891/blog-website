@@ -2,6 +2,8 @@ import React from "react";
 import Wrapper from "../../hoc/wrapper";
 import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMiddleSection";
 import Header from "../../components/header/header";
+import CommonWrapper from "../../hoc/commonWrapper";
+import MiddleWrapper from "../../hoc/middleWrapper";
 
  const HomePage = ()=>  {
   return (
@@ -12,15 +14,16 @@ import Header from "../../components/header/header";
           
         <div className="md:w-full flex">
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
-          <div className="commonwrapper" />
+            <CommonWrapper/>
 
           {/* ------------------------- Home Page Middle Section ------------------------------- */}
-          <div className=" middleWrapper">
+            <MiddleWrapper>
             <HomePageMiddleSection/>
-          </div>
+            </MiddleWrapper>
 
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
-          <div className="commonwrapper" />
+          <CommonWrapper />
+
     
         </div>
 
