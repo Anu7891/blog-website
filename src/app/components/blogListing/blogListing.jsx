@@ -8,7 +8,7 @@ import MiddleWrapper from '../../../../hoc/middleWrapper';
 import CommonWrapper from '../../../../hoc/commonWrapper';
 import Styles from '../../components/subCategoriesList/subCategories.module.css';
 import CustomLoader from '../../../../components/loader/customLoader';
-import Footer from '../../../../components/footer/footer';
+import Footer from '../../../../components/footer/Footer';
 
 // Dynamically import CustomImage
 const CustomImage = dynamic(() => import('../../../../components/image/image'));

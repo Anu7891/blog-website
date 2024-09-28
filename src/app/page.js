@@ -4,7 +4,7 @@ import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMi
 import Header from "../../components/header/header";
 import CommonWrapper from "../../hoc/commonWrapper";
 import MiddleWrapper from "../../hoc/middleWrapper";
-import Footer from "../../components/footer/footer";
+import Footer from "../../components/footer/Footer";
 
 
  const HomePage = ()=>  {
