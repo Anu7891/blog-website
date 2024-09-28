@@ -3,7 +3,6 @@ import CustomImage from '../image/image'; // Adjust the import based on your fil
 import { LOGO_IMG } from '../../lib/config';
 import CustomLink from '../customLink/customLink';
 import { footerStaticData } from '../../assets/staticTexts/staticText';
-import Wrapper from '../../hoc/wrapper';
 import Separator from '../separator/separator';
 
 
@@ -28,11 +27,13 @@ const Footer = () => {
 
           {/* ---------------------------------- Footer Links --------------------------------------- */}
           {footerStaticData?.length > 0 && (
-            <div className="px-0 flex flex-col md:flex-row items-center justify-end w-full mb-3 md:mb-2 md:w-8/12 space-y-4 md:space-y-0 md:space-x-8">
+            <div className="px-0 flex flex-col md:flex-row items-center justify-end w-full mb-3 md:mb-0 md:w-8/12 space-y-4 md:space-y-0 md:space-x-8">
               {footerStaticData?.map((footerData, footerIndex) => (
-                <CustomLink className="footerText hover:underline" href={footerData?.link} key={footerData?.id + footerIndex}>
+                <div key={footerData?.id + footerIndex}>
+                <CustomLink className="footerText hover:underline" href={footerData?.link}>
                   {footerData?.title}
                 </CustomLink>
+                </div>
               ))}
             </div>
           )}
@@ -40,8 +41,7 @@ const Footer = () => {
 
         {/* ----------------------------- Separator -------------------------------------- */}
         <Separator className={"footerBorderClass customWidthClass"} />
-
-        <p className='customWidthClass allRightReserved pt-3 pb-4 text-center'>© 2024 Inc. All rights reserved.</p>
+        <p className='customWidthClass allRightReserved pt-4 md:pt-3  pb-2 md:pb-4 text-center'>© 2024 Inc. All rights reserved.</p>
       </div>
 
 
