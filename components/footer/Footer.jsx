@@ -27,11 +27,13 @@ const Footer = () => {
 
           {/* ---------------------------------- Footer Links --------------------------------------- */}
           {footerStaticData?.length > 0 && (
-            <div className="px-0 flex flex-col md:flex-row items-center justify-end w-full mb-3 md:mb-2 md:w-8/12 space-y-4 md:space-y-0 md:space-x-8">
+            <div className="px-0 flex flex-col md:flex-row items-center justify-end w-full mb-3 md:mb-0 md:w-8/12 space-y-4 md:space-y-0 md:space-x-8">
               {footerStaticData?.map((footerData, footerIndex) => (
-                <CustomLink className="footerText hover:underline" href={footerData?.link} key={footerData?.id + footerIndex}>
+                <div key={footerData?.id + footerIndex}>
+                <CustomLink className="footerText hover:underline" href={footerData?.link}>
                   {footerData?.title}
                 </CustomLink>
+                </div>
               ))}
             </div>
           )}

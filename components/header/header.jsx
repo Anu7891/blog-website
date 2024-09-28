@@ -119,17 +119,18 @@ const Header = () => {
             ) : (
               categories?.data?.length > 0 &&
               categories?.data?.map((link, index) => (
+                <div key={link?.name?.en + index}>
                 <CustomLink
                   href={`/c/${link?.id}`}
                   className={`text-sm md:text-base categoryLink ${selectedLink === link?.id
                       ? "selectedLink"
                       : "hover:underline mb-2"
                     }`} // Add hover only if not selected
-                  key={link?.name?.en + index}
                   handleClick={() => handleLinkClick(link?.id)} // Set the selected link
                 >
                   {link?.name?.en || link?.description}
                 </CustomLink>
+                </div>
               ))
             )}
           </div>
@@ -151,15 +152,16 @@ const Header = () => {
                 <p>{error}</p>
               ) : categories?.data?.length > 0 ? (
                 categories.data.map((link, index) => (
+                  <div key={link?.name?.en + index}>
                   <CustomLink
                     href={`/c/${link?.id}`}
                     className={`${Styles?.linkText} text-sm md:text-base pt-4 mt-1 flex categoryLink hover:underline ${selectedLink === link?.id ? "selectedLink" : ""
                       }`}
-                    key={link?.name?.en + index}
                     handleClick={() => handleLinkClick(link?.id)} // Set the selected link
                   >
                     {link?.name?.en || link?.description}
                   </CustomLink>
+                  </div>
                 ))
               ) : (
                 <p className="no-categories">No categories available!</p>
