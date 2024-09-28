@@ -1,5 +1,5 @@
-"use client"
-import React, { Component } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Wrapper from "../../hoc/wrapper";
 import Styles from "./header.module.css";
 import { CLOSE_ICON, HAMBURGER_ICON, LOGO_IMG } from "../../lib/config";
@@ -8,134 +8,168 @@ import CustomImage from "../image/image";
 import Link from "next/link";
 import { fetchCategories } from "@/utils/apiHelper";
 
+const Header = () => {
+  const [swipableDrawer, setSwipableDrawer] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedLink, setSelectedLink] = useState(null); // State to track the selected link
 
-const links = ["Crypto Insights", "Block Chain", "How To", "Opinion", "Reviews","City","World","Business","Entertainment","Web Series"];
-
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      swipableDrawer: false,
-      categories: [],
-      loading: true,
-      error: null,
-    };
-  }
-
-  handleSwipableDrawer = () => {
-    this.setState((prevState) => ({
-      swipableDrawer: !prevState.swipableDrawer,
-    }));
+  const handleSwipableDrawer = () => {
+    setSwipableDrawer(!swipableDrawer);
   };
 
- handleCloseSwipableDrawer = () => {
-  this.setState({ swipableDrawer: false });
-};
+  const handleCloseSwipableDrawer = () => {
+    setSwipableDrawer(false);
+  };
 
   // Separate method to fetch categories
-  handlefetchCategoryData = async () => {
+  const handlefetchCategoryData = async () => {
     try {
       const data = await fetchCategories();
       if (data) {
-        this.setState({ categories: data, loading:false });
+        setCategories(data);
+        setLoading(false);
       }
     } catch (error) {
-      this.setState({ categories: [], loading: false, error: "Failed to load categories" });
+      setCategories([]);
+      setLoading(false);
+      setError("Failed to load categories");
     }
-  }
+  };
 
-  componentDidMount() {
-    this.handlefetchCategoryData(); // Call the separate method in componentDidMount
-  }
+  useEffect(() => {
+    handlefetchCategoryData(); // Fetch categories on mount
 
+    // Retrieve selected link from local storage
+    const storedLink = localStorage.getItem('selectedLink');
+    if (storedLink) {
+      setSelectedLink(storedLink);
+    }
 
+    // Function to handle window resize
+    const handleResize = () => {
+      if (window.innerWidth > 767) {
+        handleCloseSwipableDrawer(); // Close drawer if width is greater than 767px
+      }
+    };
 
-  render() {
-    const { categories, loading, error } = this.state;
+    window.addEventListener('resize', handleResize); // Add resize event listener
 
-    return (
-      <Wrapper>
-        <div className={Styles?.headerWrapper}>
-          {/* ------------------- Header-Container--------------------- */}
-          <div className={`${Styles?.containerWrapper} container`}>
-            <div className="w-full flex justify-center col-12 px-0  items-center">
-              <div className={`${Styles?.menu} col-3 md:hidden`} >
-                {!this.state.swipableDrawer ? (
-                <CustomImage src={HAMBURGER_ICON} alt="menu" title="menu" height={28} width={28} onClick={this.handleSwipableDrawer} />
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Run only once on mount
 
-                ) : (
-                <CustomImage src={CLOSE_ICON} alt="close-icon" title="close-icon" height={20} width={20} onClick={this.handleCloseSwipableDrawer} />
-                )}
-              </div>
-              <Link href={'/'} className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3" >
-                <p className="logoImgClass">
-                <CustomImage src={LOGO_IMG} alt="logo_img" title="logo_img" height={80} width={250} className="logoImg"/>
-                </p>
-              </Link>
+  // Function to handle link click and set the selected link
+  const handleLinkClick = (linkId) => {
+    setSelectedLink(linkId);
+    localStorage.setItem('selectedLink', linkId); // Store selected link in local storage
+  };
+
+  return (
+    <Wrapper>
+      <div className={Styles?.headerWrapper}>
+        {/* ------------------- Header-Container--------------------- */}
+        <div className={`${Styles?.containerWrapper} container`}>
+          <div className="w-full flex justify-center col-12 px-0 items-center">
+            <div className={`${Styles?.menu} col-3 md:hidden`}>
+              {!swipableDrawer ? (
+                <CustomImage
+                  src={HAMBURGER_ICON}
+                  alt="menu"
+                  title="menu"
+                  height={28}
+                  width={28}
+                  onClick={handleSwipableDrawer}
+                />
+              ) : (
+                <CustomImage
+                  src={CLOSE_ICON}
+                  alt="close-icon"
+                  title="close-icon"
+                  height={20}
+                  width={20}
+                  onClick={handleCloseSwipableDrawer}
+                />
+              )}
             </div>
+            <Link
+              href="/"
+              className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3"
+            >
+              <p className="logoImgClass">
+                <CustomImage
+                  src={LOGO_IMG}
+                  alt="logo_img"
+                  title="logo_img"
+                  height={80}
+                  width={250}
+                  className="logoImg"
+                />
+              </p>
+            </Link>
+          </div>
 
-            {/* -------------------- Links------------------------- */}
-            <div className={Styles?.linkContainer}>
+          {/* -------------------- Links------------------------- */}
+          <div className={Styles?.linkContainer}>
+            {loading ? (
+              <p>Loading categories...</p>
+            ) : error ? (
+              <p>{error}</p>
+            ) : (
+              categories?.data?.length > 0 &&
+              categories?.data?.map((link, index) => (
+                <Link
+                  href={`/c/${link?.id}`}
+                  className={`text-sm md:text-base categoryLink ${selectedLink === link?.id ? "selectedLink" : ""
+                    }`}
+                  key={link?.name?.en + index}
+                  onClick={() => handleLinkClick(link?.id)} // Set the selected link
+                >
+                  {link?.name?.en || link?.description}
+                </Link>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
+
+      {swipableDrawer && (
+        <div className={Styles?.drawerClass}>
+          <CustomDrawer
+            isOpen={swipableDrawer}
+            onClose={handleCloseSwipableDrawer} // This will close the drawer
+            className={Styles?.customContentClass} // Custom class for content
+            drawerClassName={Styles?.customDrawerClass} // Custom class for content
+          >
+            <div className={Styles?.drawerContent}>
               {loading ? (
-                <p>Loading categories...</p>
+                <p className="no-categories">Loading categories...</p>
               ) : error ? (
                 <p>{error}</p>
-              ) : (
-                categories?.data?.length > 0 && categories?.data?.map((link, index) => (
+              ) : categories?.data?.length > 0 ? (
+                categories.data.map((link, index) => (
                   <Link
                     href={`/c/${link?.id}`}
-                    className="text-sm md:text-base hover:underline categoryLink"
+                    className={`${Styles?.linkText} text-sm md:text-base pt-5 flex categoryLink hover:underline ${selectedLink === link?.id ? "selectedLink" : ""
+                      }`}
                     key={link?.name?.en + index}
+                    onClick={() => handleLinkClick(link?.id)} // Set the selected link
                   >
                     {link?.name?.en || link?.description}
                   </Link>
                 ))
+              ) : (
+                <p className="no-categories">No categories available!</p>
               )}
             </div>
-          </div>
+          </CustomDrawer>
         </div>
-
-      
-        {this.state.swipableDrawer && (
-            <div className={Styles?.drawerClass}>
-            <CustomDrawer
-          
-            isOpen={this.state.swipableDrawer}
-            onClose={this.handleCloseSwipableDrawer} // This will close the drawer
-            className={Styles?.customContentClass} // Custom class for content
-            drawerClassName={Styles?.customDrawerClass}  //Custom class for content
-            >
-            <div className={Styles?.drawerContent}>
-                {loading ? (
-                  <p className="no-categories">Loading categories...</p>
-                ) : error ? (
-                  <p>{error}</p>
-                ) : categories?.data?.length > 0 ? (
-                  categories.data.map((link, index) => (
-                    <Link
-                      href={`/c/${link?.id}`}
-                      className={`${Styles?.linkText} text-sm md:text-base pt-5 flex categoryLink hover:underline`}
-                      key={link?.name?.en + index}
-                    >
-                      {link?.name?.en || link?.description}
-                    </Link>
-                  ))
-                ) : (
-                  <p className="no-categories">No categories available!</p>
-                )}
-
-            </div>
-            </CustomDrawer>  
-            </div>
-       
-        
-        )}
-           
-
-         
-      </Wrapper>
-    );
-  }
-}
+      )}
+    </Wrapper>
+  );
+};
 
 export default Header;
