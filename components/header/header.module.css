@@ -1,7 +1,7 @@
 
 
 .headerWrapper {
-    background: var(--background-color) !important;
+    background: #000 !important;
    box-shadow:0 4px 30px #00000012;
    padding: 1rem 0 0.5rem;
    
@@ -39,7 +39,7 @@
 
 
 .linkContainer p {
- color:var(--theme-color) !important;
+    color:#fff !important;
  font-weight: 500 !important;
  text-transform: capitalize;
  margin-bottom: 0 !important;

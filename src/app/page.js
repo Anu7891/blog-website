@@ -4,6 +4,8 @@ import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMi
 import Header from "../../components/header/header";
 import CommonWrapper from "../../hoc/commonWrapper";
 import MiddleWrapper from "../../hoc/middleWrapper";
+import Footer from "../../components/footer/footer";
+
 
  const HomePage = ()=>  {
   return (
@@ -24,23 +26,11 @@ import MiddleWrapper from "../../hoc/middleWrapper";
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
           <CommonWrapper />
 
-    
+         
         </div>
 
-        <style>
-          {
-            `
-           
-            
-            
-            
-            
-            
-            `
-          }
-        </style>
-
-
+        {/* ------------------------------------- Footer------------------------------------------------ */}
+        <Footer />
 
       </div>
     </Wrapper>

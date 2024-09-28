@@ -41,12 +41,6 @@ const Header = () => {
   useEffect(() => {
     handlefetchCategoryData(); // Fetch categories on mount
 
-    // Retrieve selected link from local storage
-    const storedLink = localStorage.getItem('selectedLink');
-    if (storedLink) {
-      setSelectedLink(storedLink);
-    }
-
     // Function to handle window resize
     const handleResize = () => {
       if (window.innerWidth > 767) {
@@ -54,18 +48,17 @@ const Header = () => {
       }
     };
 
-    window.addEventListener('resize', handleResize); // Add resize event listener
+    window.addEventListener("resize", handleResize); // Add resize event listener
 
     // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []); // Run only once on mount
 
   // Function to handle link click and set the selected link
   const handleLinkClick = (linkId) => {
-    setSelectedLink(linkId);
-    localStorage.setItem('selectedLink', linkId); // Store selected link in local storage
+    setSelectedLink(linkId); // Only manage state in memory, no local storage
   };
 
   return (
@@ -123,8 +116,10 @@ const Header = () => {
               categories?.data?.map((link, index) => (
                 <Link
                   href={`/c/${link?.id}`}
-                  className={`text-sm md:text-base categoryLink ${selectedLink === link?.id ? "selectedLink" : ""
-                    }`}
+                  className={`text-sm md:text-base categoryLink ${selectedLink === link?.id
+                      ? "selectedLink"
+                      : "hover:underline mb-2"
+                    }`} // Add hover only if not selected
                   key={link?.name?.en + index}
                   onClick={() => handleLinkClick(link?.id)} // Set the selected link
                 >
