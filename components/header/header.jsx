@@ -7,6 +7,7 @@ import CustomDrawer from "../drawer/customDrawer";
 import CustomImage from "../image/image";
 import Link from "next/link";
 import { fetchCategories } from "@/utils/apiHelper";
+import CustomLink from "../customLink/customLink";
 
 const Header = () => {
   const [swipableDrawer, setSwipableDrawer] = useState(false);
@@ -91,10 +92,10 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <Link
+            <CustomLink
               href="/"
               className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3"
-              onClick={handleCloseSwipableDrawer}
+              handleClick={handleCloseSwipableDrawer}
             >
               <p className="logoImgClass">
                 <CustomImage
@@ -106,7 +107,7 @@ const Header = () => {
                   className="logoImg"
                 />
               </p>
-            </Link>
+            </CustomLink>
           </div>
 
           {/* -------------------- Links------------------------- */}
@@ -118,17 +119,17 @@ const Header = () => {
             ) : (
               categories?.data?.length > 0 &&
               categories?.data?.map((link, index) => (
-                <Link
+                <CustomLink
                   href={`/c/${link?.id}`}
                   className={`text-sm md:text-base categoryLink ${selectedLink === link?.id
                       ? "selectedLink"
                       : "hover:underline mb-2"
                     }`} // Add hover only if not selected
                   key={link?.name?.en + index}
-                  onClick={() => handleLinkClick(link?.id)} // Set the selected link
+                  handleClick={() => handleLinkClick(link?.id)} // Set the selected link
                 >
                   {link?.name?.en || link?.description}
-                </Link>
+                </CustomLink>
               ))
             )}
           </div>
@@ -150,15 +151,15 @@ const Header = () => {
                 <p>{error}</p>
               ) : categories?.data?.length > 0 ? (
                 categories.data.map((link, index) => (
-                  <Link
+                  <CustomLink
                     href={`/c/${link?.id}`}
                     className={`${Styles?.linkText} text-sm md:text-base pt-4 mt-1 flex categoryLink hover:underline ${selectedLink === link?.id ? "selectedLink" : ""
                       }`}
                     key={link?.name?.en + index}
-                    onClick={() => handleLinkClick(link?.id)} // Set the selected link
+                    handleClick={() => handleLinkClick(link?.id)} // Set the selected link
                   >
                     {link?.name?.en || link?.description}
-                  </Link>
+                  </CustomLink>
                 ))
               ) : (
                 <p className="no-categories">No categories available!</p>

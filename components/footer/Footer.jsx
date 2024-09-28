@@ -3,7 +3,6 @@ import CustomImage from '../image/image'; // Adjust the import based on your fil
 import { LOGO_IMG } from '../../lib/config';
 import CustomLink from '../customLink/customLink';
 import { footerStaticData } from '../../assets/staticTexts/staticText';
-import Wrapper from '../../hoc/wrapper';
 import Separator from '../separator/separator';
 
 
@@ -40,8 +39,7 @@ const Footer = () => {
 
         {/* ----------------------------- Separator -------------------------------------- */}
         <Separator className={"footerBorderClass customWidthClass"} />
-
-        <p className='customWidthClass allRightReserved pt-3 pb-4 text-center'>© 2024 Inc. All rights reserved.</p>
+        <p className='customWidthClass allRightReserved pt-4 md:pt-3  pb-2 md:pb-4 text-center'>© 2024 Inc. All rights reserved.</p>
       </div>
 
 

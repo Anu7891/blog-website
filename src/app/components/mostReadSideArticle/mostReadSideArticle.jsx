@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import React from 'react';
+import dynamic from 'next/dynamic';
 import Styles from "../mostRead/mostRead.module.css";
+const CustomLink = dynamic(() => import('../../../../components/customLink/customLink'));
 
 const MostReadSideArticle = ({ articles = [] }) => {
 
@@ -9,11 +10,11 @@ const MostReadSideArticle = ({ articles = [] }) => {
     <div className={Styles?.sideArticles}>
       {articles.length > 0 && articles.map((item, index) => (
         <div key={index} className={`${Styles?.sideArticle}`}>
-          <Link href={item?.code || ""} className={`${Styles?.sideArticleImage}`} style={{ backgroundImage: `url(${item?.image})` }}>
+          <CustomLink href={item?.code || ""} className={`${Styles?.sideArticleImage}`} style={{ backgroundImage: `url(${item?.image})` }}>
             <div className={`${Styles?.overlayInner} gap_8`}>
               <p className={`${Styles?.description} mb-0 md:text-base mt-0`}>{item?.title}</p>
             </div>
-          </Link>
+          </CustomLink>
         </div>
       ))}
     </div>
