@@ -152,16 +152,13 @@ const Header = () => {
                 <p>{error}</p>
               ) : categories?.data?.length > 0 ? (
                 categories.data.map((link, index) => (
-                  <div key={link?.name?.en + index}>
-                  <CustomLink
+                  <Link
                     href={`/c/${link?.id}`}
-                    className={`${Styles?.linkText} text-sm md:text-base pt-4 mt-1 flex categoryLink hover:underline ${selectedLink === link?.id ? "selectedLink" : ""
-                      }`}
-                    handleClick={() => handleLinkClick(link?.id)} // Set the selected link
+                    className={`${Styles?.linkText} text-sm md:text-base pt-4 mt-1 flex categoryLink hover:underline`}
+                      key={link?.name?.en + index}
                   >
                     {link?.name?.en || link?.description}
-                  </CustomLink>
-                  </div>
+                    </Link>
                 ))
               ) : (
                 <p className="no-categories">No categories available!</p>
