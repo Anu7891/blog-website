@@ -102,8 +102,7 @@ gap: 20px;
 @media only screen and (max-width:767.95px) {
      .newsGrid {
         grid-template-columns: 1fr;
-        width: 100vw !important;
-          gap:16px !important;
+        gap:16px !important;
     }
     .mainArticle {
         padding:4.25rem 1rem  0.25rem !important;

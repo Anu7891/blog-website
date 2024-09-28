@@ -94,6 +94,7 @@ const Header = () => {
             <Link
               href="/"
               className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3"
+              onClick={handleCloseSwipableDrawer}
             >
               <p className="logoImgClass">
                 <CustomImage
@@ -151,7 +152,7 @@ const Header = () => {
                 categories.data.map((link, index) => (
                   <Link
                     href={`/c/${link?.id}`}
-                    className={`${Styles?.linkText} text-sm md:text-base pt-5 flex categoryLink hover:underline ${selectedLink === link?.id ? "selectedLink" : ""
+                    className={`${Styles?.linkText} text-sm md:text-base pt-4 mt-1 flex categoryLink hover:underline ${selectedLink === link?.id ? "selectedLink" : ""
                       }`}
                     key={link?.name?.en + index}
                     onClick={() => handleLinkClick(link?.id)} // Set the selected link
