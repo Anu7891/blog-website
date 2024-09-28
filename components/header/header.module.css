@@ -64,7 +64,7 @@
 
 .linkText {
  font-size: 1.125rem;
- color:var(--theme-color);
+ color:#000 !important;
  font-weight: 500;
  margin-bottom: 0.5rem;
 }

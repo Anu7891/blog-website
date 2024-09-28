@@ -31,7 +31,6 @@ const Footer = () => {
             {/* ---------------------------------- Footer Links --------------------------------------- */}
             {footerStaticData?.length > 0 && (
               <div className="px-0 flex items-center justify-end  md:w-8/12  space-x-8">
-                {/* col-4 for large screens, col-5 for medium screens, 32px (8rem) spacing between items */}
                 {footerStaticData?.map((footerData, footerIndex) => (
                   <CustomLink className="footerText hover:underline" href={footerData?.link} key={footerData?.id + footerIndex}>
                     {footerData?.title}

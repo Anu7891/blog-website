@@ -73,19 +73,22 @@ const Header = () => {
                   src={HAMBURGER_ICON}
                   alt="menu"
                   title="menu"
-                  height={28}
-                  width={28}
+                  height={24}
+                  width={24}
                   onClick={handleSwipableDrawer}
                 />
               ) : (
-                <CustomImage
-                  src={CLOSE_ICON}
-                  alt="close-icon"
-                  title="close-icon"
-                  height={20}
-                  width={20}
-                  onClick={handleCloseSwipableDrawer}
-                />
+                  <div className="closeIconClass">
+                  <CustomImage
+                    src={CLOSE_ICON}
+                    alt="close-icon"
+                    title="close-icon"
+                    height={36}
+                    width={36}
+                    onClick={handleCloseSwipableDrawer}
+                  
+                  />
+                </div>
               )}
             </div>
             <Link

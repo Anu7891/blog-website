@@ -168,6 +168,9 @@ border-bottom: 4px solid #000;
  .selectedLink {
    display: inline-block !important;
   }
+  .footerWrapper {
+    display: none !important;
+  }
   
   }
 
@@ -196,6 +199,10 @@ border-bottom: 4px solid #000;
   color:#fff !important;
   display: flex;
   justify-content: center;
+}
+
+.closeIconClass {
+  margin-left:-4px;
 }
 
 
