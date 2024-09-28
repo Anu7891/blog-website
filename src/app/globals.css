@@ -74,6 +74,7 @@ border-bottom: 4px solid #000;
     font-family: sans-serif;
     font-weight: 500;
     font-size: 18px !important;
+    color:#fff !important;
   }
 
   .no-categories {
@@ -130,8 +131,9 @@ border-bottom: 4px solid #000;
   }
 
   .selectedLink {
-   border-bottom:2px solid #000;
-   font-weight: 700 !important;
+   border-bottom:2px solid #fff;
+   font-weight: 600 !important;
+   margin-bottom: 0.5rem !important;
   }
 
   @media only screen and (max-width:767.95px) {
@@ -168,6 +170,37 @@ border-bottom: 4px solid #000;
   }
   
   }
+
+.customWidthClass {
+  margin: 0 auto;
+  min-width: 60% !important;
+}
+
+.footerWrapper {
+  background: #000 !important;
+}
+
+.footerText {
+  font-size: 1.125rem;
+  color:#fff !important;
+}
+
+
+
+.footerBorderClass {
+ height: 3px;
+ background:#fff !important;
+}
+.allRightReserved {
+   font-size: 0.875rem;
+  color:#fff !important;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
 
 
 

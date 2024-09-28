@@ -6,6 +6,7 @@ import Header from '../../../components/header/header';
 import Styles from "../styles/blogDetails.module.css";
 import CommonWrapper from '../../../hoc/commonWrapper';
 import MiddleWrapper from '../../../hoc/middleWrapper';
+import Footer from '../../../components/footer/Footer';
 
 // Fetch all possible article paths during the build
 export async function generateStaticParams() {
@@ -89,6 +90,8 @@ export default async function MainBlogDetails({ params }) {
 
                      <CommonWrapper/>
                 </div>
+
+                <Footer/>
             </Wrapper>
         );
     } catch (error) {
