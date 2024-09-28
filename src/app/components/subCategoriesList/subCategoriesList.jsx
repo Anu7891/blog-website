@@ -8,11 +8,14 @@ const CustomTitle = dynamic(() => import('../../../../components/title/customTit
 
 
 async function SubCategoriesLists() {
+    
     let subCategories = [];
 
-    try{
-        const response = await fetch(`${SUBCATEGORIES_URL}?_= ${new Date().getTime()}`);
-        subCategories = await response.json();
+    try {
+        const response = await fetch(`${SUBCATEGORIES_URL}`, {
+            cache: 'no-store', // Always fetch fresh data
+        });
+        subCategories = await response?.json();
     } catch (err) {
         console.error("Failed to fetch categories:", err);
     }

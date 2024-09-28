@@ -86,13 +86,17 @@ export default function BlogListing({ initialArticles, categoryId }) {
                                         title={catData?.categoryName}
                                         alt={catData?.categoryName}
                                         priority={true}
+                                        unoptimized
                                     />
                                 </div>
                             )}
                         </div>
 
                         {/* ------------------------------- Related Articles Title ------------------------ */}
-                        <CustomTitle title={`Related ${catData?.categoryName} Articles`} className={"mt-4 md:mt-2"} />
+                        <CustomTitle
+                         title={`Related ${catData?.categoryName?.replace(/Articles/i, '').trim()} Articles`}
+                         className={"mt-4 md:mt-2"} 
+                        />
 
                         {/* ------------------------------- Related Articles Data ------------------------ */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6">
@@ -106,14 +110,14 @@ export default function BlogListing({ initialArticles, categoryId }) {
                                     {item?.image ? (
                                         <div className="subCategoriesImgWrapper bg-gray-200">
                                             <CustomImage
-                                                src={`${item.image}?t=${new Date().getTime()}`} // Cache-busting added here
+                                                src={item.image} // Remove cache-busting for priority images
                                                 alt={item?.title}
                                                 className="w-full h-full object-cover"
                                                 width={640} // Width for 4:3 aspect ratio
                                                 height={480} // Height for 4:3 aspect ratio
                                                 key={item?.code + index + item?.title + "subCategoriesData"}
-                                                priority={[0, 1, 2, 3]?.includes(index)}
-                                                unoptimized
+                                                priority={[0, 1, 2, 3,4,5]?.includes(index)}
+                                                unoptimized={![0, 1, 2,3,4,5]?.includes(index)}
                                             />
                                         </div>
                                     ) : (
