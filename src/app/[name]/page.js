@@ -34,7 +34,7 @@ export default async function MainBlogDetails({ params }) {
     // Fetch the specific article based on the 'name' (code)
     try {
         const res = await fetch(`${API_BASE_URL}?code=${name}`, {
-            next: { revalidate: 60 * 60 }, // Revalidate every hour
+            cache: 'no-store', // Always fetch fresh data
         });
 
         const article = await res.json();

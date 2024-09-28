@@ -18,7 +18,7 @@ import MiddleWrapper from "../../hoc/middleWrapper";
 
           {/* ------------------------- Home Page Middle Section ------------------------------- */}
             <MiddleWrapper>
-            <HomePageMiddleSection/>
+             <HomePageMiddleSection/>
             </MiddleWrapper>
 
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}

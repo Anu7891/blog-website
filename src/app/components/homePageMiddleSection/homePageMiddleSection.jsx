@@ -12,11 +12,14 @@ async function HomePageMiddleSection() {
   let blogs = [];
 
   try {
-    const response = await fetch(`${API_BASE_URL}?_= ${new Date().getTime()}`);
-    blogs = await response.json();
+    const response = await fetch(`${API_BASE_URL}`, {
+      cache: 'no-store', // Always fetch fresh data
+    });
+    blogs = await response?.json();
   } catch (err) {
     console.error("Failed to fetch blogs:", err);
   }
+
 
   const firstSectionBlogs = blogs.data?.slice(0, 5);
   const secondSectionBlogs = blogs.data?.slice(6, 10);
