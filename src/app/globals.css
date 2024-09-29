@@ -134,6 +134,12 @@
 }
 
 
+
+.close-icon {
+  margin-left:-8px;
+}
+
+
 @media only screen and (max-width:1023.95px) {
   .categoryLink {
     font-size: 17px !important;
@@ -238,6 +244,43 @@
   height: 100%;
   background-color: white;
 }
+
+    
+
+.shimmer {
+background: linear-gradient(to right,
+      #e0e0e0 0%,
+      /* Darker grey */
+      #cfcfcf 20%,
+      /* Slightly darker than the background */
+      #e0e0e0 40%,
+      #e0e0e0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  background-size: inherit;
+  animation: shimmer 1.5s infinite;
+  transform: translateX(-100%);
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+
 
 
 
