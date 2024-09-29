@@ -7,6 +7,7 @@ import "./globals.css";
 import { fetchCategories } from "@/utils/apiHelper"; // Adjust the import according to your project structure
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/Footer";
+import ProgressBar from "../../components/progressBar/ProgressBar";
 // Adjust the import according to your project structure
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,6 +36,7 @@ export default function RootLayout({ children, pageProps ={} }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ProgressBar />
        <Header categories={categories} loading={loading} error={error} />
         <main>{children}</main>
         <Footer />

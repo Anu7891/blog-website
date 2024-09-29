@@ -229,6 +229,16 @@
   background: #F5F5F5 !important;
 }
 
+.progress-bar {
+  height: 2px;
+  background-color: black;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: white;
+}
+
 
 
 
