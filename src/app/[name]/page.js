@@ -7,6 +7,7 @@ import Styles from "../styles/blogDetails.module.css";
 import CommonWrapper from '../../../hoc/commonWrapper';
 import MiddleWrapper from '../../../hoc/middleWrapper';
 import Footer from '../../../components/footer/Footer';
+import SEOHead from '../../../html/SEOHead';
 
 // Fetch all possible article paths during the build
 export async function generateStaticParams() {
@@ -50,6 +51,7 @@ export default async function MainBlogDetails({ params }) {
 
         return (
             <Wrapper>
+                <SEOHead/>
                 {/* ---------------------------------- Header---------------------------------- */}
                 <Header />
 

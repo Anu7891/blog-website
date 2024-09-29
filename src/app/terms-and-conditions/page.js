@@ -3,14 +3,19 @@ import React from 'react';
 import Wrapper from '../../../hoc/wrapper';
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/Footer';
+import SEOHead from '../../../html/SEOHead';
 
 const TermsAndConditions = () => {
     return (
         <Wrapper>
-            
+            <SEOHead
+                title="Terms and Conditions - Crypto3Blog"
+                description="Read the terms and conditions of Crypto3Blog outlining the rules and regulations for using our website and services."
+                keywords="terms and conditions, user agreement, Crypto3Blog"
+            />
             {/* ------------------------ Header Component ---------------------------- */}
             <Header />
-            
+
             {/* ------------------------ Terms and Conditions Content ---------------------------- */}
             <div className="px-3 md:px-10 pt-14 mt-14 md:mt-0 pb-6 md:py-8 commonContentBackground">
                 <h1 className="text-3xl font-bold mb-4">Terms and Conditions of Use</h1>
@@ -67,9 +72,9 @@ const TermsAndConditions = () => {
                     If you have any questions or concerns regarding these Terms and Conditions, please contact us.
                 </p>
             </div>
-            
+
             {/* ------------------------ Footer Component---------------------------- */}
-            <Footer/>
+            <Footer />
         </Wrapper>
     );
 };
