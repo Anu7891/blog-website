@@ -1,15 +1,18 @@
-export const footerStaticData =[
-    {
-      title:"Privacy",
-      link:"https://imagesnew.crypto3blog.com/privacy.html",
-      id:"privacy"
+export const footerStaticData = [
+  {
+    title: "Privacy Policy",
+    // link:"https://imagesnew.crypto3blog.com/privacy.html",
+    link: "/privacy-policy",
 
-    }, 
-    {
-        title: "Terms & Conditions",
-      link: "https://imagesnew.crypto3blog.com/terms.html",
-        id: "terms-conditions"
+    id: "privacy"
 
-    }, 
+  },
+  {
+    title: "Terms & Conditions",
+    // link: "https://imagesnew.crypto3blog.com/terms.html",
+    link: "/terms-and-conditions",
+    id: "terms-conditions"
 
- ]
+  },
+
+]
