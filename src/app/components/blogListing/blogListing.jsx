@@ -63,7 +63,7 @@ export default function BlogListing({ initialArticles, categoryId }) {
 
                 {/* --------------------------------  Middle Section ----------------------------------- */}
                 <MiddleWrapper>
-                    <div className="px-4 md:px-0 pt-24 md:pt-5 pb-3">
+                    <div className="px-4 md:px-0 pt-24 md:pt-5 pb-3 min-h-[600px]"> {/* Added min-height */}
                         {/* Category Name */}
                         <p className={`${Styles?.categoryTitle} pb-3`}>
                             {catData?.categoryName || <div className="w-32 h-6 bg-gray-300 shimmer" />}
@@ -76,16 +76,15 @@ export default function BlogListing({ initialArticles, categoryId }) {
                                     {catData.categoryDescription || catData.description}
                                 </p>
                             ) : (
-                            <div className="w-full md:w-8/12 flex flex-col justify-start items-center pr-5">
-                                <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
-                                <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
-                                <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
-                                <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
-                                <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
-                                <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
-                            </div>
+                                <div className="w-full md:w-8/12 flex flex-col justify-start items-center pr-5">
+                                    <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
+                                    <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
+                                    <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
+                                    <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
+                                    <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
+                                    <div className="w-full h-6 bg-gray-300 shimmer mt-1"></div>
+                                </div>
                             )}
-
 
                             {/* Category Image */}
                             {catData?.categoryImage ? (
@@ -116,45 +115,44 @@ export default function BlogListing({ initialArticles, categoryId }) {
                         {/* Related Articles Data */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6">
                             {articles?.map((item, index) => (
-                                    <a
-                                        href={`/${item?.code}`}
-                                        key={item?.code + index + item?.title + "subCategoriesData"}
-                                        className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-                                    >
-                                        {/* Image on top */}
-                                        {item?.image ? (
-                                            <div className="subCategoriesImgWrapper bg-gray-200">
-                                                <CustomImage
-                                                    src={item.image}
-                                                    alt={item?.title}
-                                                    className="w-full h-full object-cover"
-                                                    width={640}
-                                                    height={480}
-                                                    key={item?.code + index + item?.title + "subCategoriesData"}
-                                                    priority={[0, 1, 2, 3, 4, 5]?.includes(index)}
-                                                    unoptimized={![0, 1, 2, 3, 4, 5]?.includes(index)}
-                                                />
-                                            </div>
-                                        ) : (
-                                            <div className="flex items-center justify-center h-full text-gray-400">
-                                                No Image Available
-                                            </div>
-                                        )}
-
-                                        {/* Title at bottom */}
-                                        <div className="p-4">
-                                            <h2 className="text-lg font-semibold text-gray-800">{item?.title}</h2>
+                                <a
+                                    href={`/${item?.code}`}
+                                    key={item?.code + index + item?.title + "subCategoriesData"}
+                                    className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                                >
+                                    {/* Image on top */}
+                                    {item?.image ? (
+                                        <div className="subCategoriesImgWrapper bg-gray-200">
+                                            <CustomImage
+                                                src={item.image}
+                                                alt={item?.title}
+                                                className="w-full h-full object-cover"
+                                                width={640}
+                                                height={480}
+                                                key={item?.code + index + item?.title + "subCategoriesData"}
+                                                priority={[0, 1, 2, 3, 4, 5]?.includes(index)}
+                                                unoptimized={![0, 1, 2, 3, 4, 5]?.includes(index)}
+                                            />
                                         </div>
-                                    </a>
-                                ))}
+                                    ) : (
+                                        <div className="flex items-center justify-center h-full text-gray-400">
+                                            No Image Available
+                                        </div>
+                                    )}
+
+                                    {/* Title at bottom */}
+                                    <div className="p-4">
+                                        <h2 className="text-lg font-semibold text-gray-800">{item?.title}</h2>
+                                    </div>
+                                </a>
+                            ))}
                         </div>
 
-                        {/* Loader */}
+                        {/* Loader and minimum height to prevent layout shift */}
                         {loading && <CustomLoader />}
 
-                        {/* No more articles message */}
-                        {/* {!hasMore && <div>No more articles to load.</div>} */}
                     </div>
+
                 </MiddleWrapper>
 
                 <CommonWrapper />
