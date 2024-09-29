@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
         <Header/>
 
         {/* ------------------------- Privacy Policy Content ------------------------------------- */}
-          <div className="container mx-auto px-4 pt-14 mt-14 md:mt-0 pb-6 md:py-8">
+          <div className="px-3 md:px-10 pt-14 mt-14 md:mt-0 pb-6 md:py-8 commonContentBackground">
               <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
               <p className="mb-4">
                   This Privacy Policy discloses the privacy practices for the
