@@ -23,8 +23,16 @@ const Header = ({ categories, loading, error }) => {
 
   // Function to handle link click and set the selected link
   const handleLinkClick = (linkId) => {
-    setSelectedLink(linkId); // Only manage state in memory, no local storage
+    setSelectedLink(linkId);
   };
+
+  const handleHomePageRouting  =() => {
+    if(typeof window !== "udefined" && window.innerWidth < 767) {
+      handleCloseSwipableDrawer()
+    } else {
+      setSelectedLink(""); // Only manage state in memory, no local storage
+    }
+  }
 
   return (
     <Wrapper>
@@ -56,7 +64,7 @@ const Header = ({ categories, loading, error }) => {
             <CustomLink
               href="/"
               className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3"
-              handleClick={handleCloseSwipableDrawer}
+              handleClick={handleHomePageRouting}
             >
               <p className="logoImgClass">
                 <CustomImage
