@@ -60,7 +60,12 @@ export default function BlogListing({ initialArticles, categoryId }) {
 
     return (
         <Wrapper>
+
+            
+            {/* --------------------------------- Header -------------------------------------------- */}
             <Header />
+            {/* --------------------------------- Body Content -------------------------------------------- */}
+
             <div className="md:w-full flex">
                 <CommonWrapper />
 
@@ -147,6 +152,8 @@ export default function BlogListing({ initialArticles, categoryId }) {
 
                 <CommonWrapper />
             </div>
+            
+            {/* --------------------------------- Footer -------------------------------------------- */}
              <Footer/>
         </Wrapper>
     );

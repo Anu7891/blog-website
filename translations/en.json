@@ -1,0 +1,10 @@
+{
+  "seo": {
+    "defaultTitle": "Crypto3Blog - Your Source for Crypto News",
+    "defaultDescription": "Stay updated with the latest crypto news, trends, and insights on Crypto3Blog.",
+    "defaultKeywords": "crypto, cryptocurrency, blockchain, bitcoin, ethereum, news",
+    "defaultOgType": "website",
+    "defaultOgImage": "https://www.crypto3blog.com/og-image.jpg",
+    "defaultTwitterImage": "https://www.crypto3blog.com/twitter-image.jpg"
+  }
+}

@@ -3,14 +3,32 @@ import React from 'react';
 import Wrapper from '../../../hoc/wrapper';
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/Footer';
+import SEOHead from '../../../html/SEOHead';
+import { WEB_LINK } from '../../../lib/config';
+
+// Define metadata for the page
+export const metadata = {
+    title: "Terms and Conditions | Crypto3Blog",
+    description: "Read the terms and conditions for using Crypto3Blog.",
+    keywords: "terms, conditions, Crypto3Blog",
+    url: WEB_LINK, // Set your website URL here
+};
 
 const TermsAndConditions = () => {
     return (
         <Wrapper>
-            
+
+           {/* SEO Head for managing page metadata */}
+            <SEOHead
+                title={metadata?.title}
+                description={metadata?.description}
+                keywords={metadata?.keywords}
+                url={metadata?.url}
+            />
+
             {/* ------------------------ Header Component ---------------------------- */}
             <Header />
-            
+
             {/* ------------------------ Terms and Conditions Content ---------------------------- */}
             <div className="px-3 md:px-10 pt-14 mt-14 md:mt-0 pb-6 md:py-8 commonContentBackground">
                 <h1 className="text-3xl font-bold mb-4">Terms and Conditions of Use</h1>
@@ -67,9 +85,9 @@ const TermsAndConditions = () => {
                     If you have any questions or concerns regarding these Terms and Conditions, please contact us.
                 </p>
             </div>
-            
+
             {/* ------------------------ Footer Component---------------------------- */}
-            <Footer/>
+            <Footer />
         </Wrapper>
     );
 };
