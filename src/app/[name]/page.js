@@ -86,7 +86,7 @@ export default async function MainBlogDetails({ params }) {
             return <div>Article not found</div>;
         }
 
-        const { title, image, description, htmlDescription } = article.data[0];
+        const { title, image, description, htmlDescription } = article?.data[0];
 
         return (
             <Wrapper>
