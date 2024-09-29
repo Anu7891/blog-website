@@ -4,15 +4,28 @@ import Wrapper from '../../../hoc/wrapper';
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/Footer';
 import SEOHead from '../../../html/SEOHead';
+import { WEB_LINK } from '../../../lib/config';
+
+// Define metadata for the page
+export const metadata = {
+    title: "Terms and Conditions | Crypto3Blog",
+    description: "Read the terms and conditions for using Crypto3Blog.",
+    keywords: "terms, conditions, Crypto3Blog",
+    url: WEB_LINK, // Set your website URL here
+};
 
 const TermsAndConditions = () => {
     return (
         <Wrapper>
+
+           {/* SEO Head for managing page metadata */}
             <SEOHead
-                title="Terms and Conditions - Crypto3Blog"
-                description="Read the terms and conditions of Crypto3Blog outlining the rules and regulations for using our website and services."
-                keywords="terms and conditions, user agreement, Crypto3Blog"
+                title={metadata?.title}
+                description={metadata?.description}
+                keywords={metadata?.keywords}
+                url={metadata?.url}
             />
+
             {/* ------------------------ Header Component ---------------------------- */}
             <Header />
 

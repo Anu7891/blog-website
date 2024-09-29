@@ -7,15 +7,20 @@ import MiddleWrapper from "../../hoc/middleWrapper";
 import Footer from "../../components/footer/Footer";
 import SEOHead from "../../html/SEOHead";
 
+ export const metadata = {
+  title: 'Crypto3Blog',
+  description: 'Stay updated with the latest crypto news, trends, and insights on Crypto3Blog.',
+};
 
  const HomePage = ()=>  {
   return (
     <Wrapper>
-      {/* Home page specific SEO metadata */}
+      {/* ----------------------- SEO Head Description -------------------------------------- */}
       <SEOHead
-        title="Welcome to Crypto3Blog - Latest Crypto News"
-        description="Get the latest updates on cryptocurrency trends and news at Crypto3Blog."
+        title={metadata?.title}
+        description={metadata?.description}
       />
+
       <div className="h-screen bg-white">
         {/* ------------------- Blog Header -------------------------- */}
           <Header />

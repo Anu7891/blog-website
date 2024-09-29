@@ -7,7 +7,6 @@ import Styles from "../styles/blogDetails.module.css";
 import CommonWrapper from '../../../hoc/commonWrapper';
 import MiddleWrapper from '../../../hoc/middleWrapper';
 import Footer from '../../../components/footer/Footer';
-import SEOHead from '../../../html/SEOHead';
 
 // Fetch all possible article paths during the build
 export async function generateStaticParams() {
@@ -29,6 +28,47 @@ export async function generateStaticParams() {
     }
 }
 
+// Generate dynamic metadata based on the article details
+export async function generateMetadata({ params }) {
+    const { name } = params;
+
+    try {
+        const res = await fetch(`${API_BASE_URL}?code=${name}`);
+        const article = await res.json();
+
+        if (!article?.data?.[0]) {
+            return {
+                title: "Article Not Found",
+                description: "This article could not be found.",
+            };
+        }
+
+        const { title, description, image } = article.data[0];
+
+        return {
+            title: title || "Default Title",
+            description: description || "Default description for this article.",
+            openGraph: {
+                title: title || "Default Title",
+                description: description || "Default description for this article.",
+                images: [
+                    {
+                        url: image || '/default-image.jpg',
+                        width: 800,
+                        height: 600,
+                    },
+                ],
+            },
+        };
+    } catch (error) {
+        console.error("Error generating metadata:", error);
+        return {
+            title: "Error",
+            description: "An error occurred while fetching the article.",
+        };
+    }
+}
+
 // Fetch article data based on the 'name' dynamically during rendering
 export default async function MainBlogDetails({ params }) {
     const { name } = params;
@@ -36,7 +76,7 @@ export default async function MainBlogDetails({ params }) {
     // Fetch the specific article based on the 'name' (code)
     try {
         const res = await fetch(`${API_BASE_URL}?code=${name}`, {
-            cache: 'no-store', // Always fetch fresh data
+            next: { revalidate: 600 },
         });
 
         const article = await res.json();
@@ -46,25 +86,23 @@ export default async function MainBlogDetails({ params }) {
             return <div>Article not found</div>;
         }
 
-        const { title, image, description, htmlDescription } = article?.data?.[0];
-        
+        const { title, image, description, htmlDescription } = article.data[0];
 
         return (
             <Wrapper>
-                <SEOHead/>
                 {/* ---------------------------------- Header---------------------------------- */}
                 <Header />
 
                 <div className="md:w-full flex">
-                    
                     <CommonWrapper />
 
                     {/* Middle Section */}
                     <MiddleWrapper>
                         <div className="px-4 md:px-0 mb-5 md:pb-6 md:pt-0 pt-8">
                             {/* Title */}
-                            {title && 
-                            <p className={`${Styles?.title} capitalize`}>{title}</p>}
+                            {title && (
+                                <p className={`${Styles?.title} capitalize`}>{title}</p>
+                            )}
 
                             {/* Image */}
                             {image && (
@@ -82,18 +120,19 @@ export default async function MainBlogDetails({ params }) {
                             )}
 
                             {/* Description */}
-                            {htmlDescription || description ?
-                            <p
-                                dangerouslySetInnerHTML={{ __html: htmlDescription || description }}
-                                className={Styles?.description}
-                            /> : null}
+                            {htmlDescription || description ? (
+                                <p
+                                    dangerouslySetInnerHTML={{ __html: htmlDescription || description }}
+                                    className={Styles?.description}
+                                />
+                            ) : null}
                         </div>
                     </MiddleWrapper>
 
-                     <CommonWrapper/>
+                    <CommonWrapper />
                 </div>
 
-                <Footer/>
+                <Footer />
             </Wrapper>
         );
     } catch (error) {

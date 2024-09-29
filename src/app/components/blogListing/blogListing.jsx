@@ -9,7 +9,6 @@ import CommonWrapper from '../../../../hoc/commonWrapper';
 import Styles from '../../components/subCategoriesList/subCategories.module.css';
 import CustomLoader from '../../../../components/loader/customLoader';
 import Footer from '../../../../components/footer/Footer';
-import SEOHead from '../../../../html/SEOHead';
 
 // Dynamically import CustomImage
 const CustomImage = dynamic(() => import('../../../../components/image/image'));
@@ -61,8 +60,7 @@ export default function BlogListing({ initialArticles, categoryId }) {
 
     return (
         <Wrapper>
-            {/* --------------------------------- SEO Head -------------------------------------------- */}
-            <SEOHead/>
+
             
             {/* --------------------------------- Header -------------------------------------------- */}
             <Header />

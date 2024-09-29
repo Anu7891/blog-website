@@ -1,10 +1,10 @@
-import Head from 'next/head';
 import en from "../translations/en.json"
 import { WEB_LINK } from '../lib/config';
+import NextHead from "next/head";
 
 const SEOHead = ({ title, description, url, image, keywords }) => {
     return (
-        <Head>
+        <NextHead>
             <title>{title ? title : en.seo.defaultTitle}</title>
             <meta
                 name="description"
@@ -27,7 +27,7 @@ const SEOHead = ({ title, description, url, image, keywords }) => {
             />
             <meta name="twitter:image" content={image ? image : en.seo.defaultTwitterImage} />
             <link rel="icon" href="/favicon.ico" />
-        </Head>
+        </NextHead>
     );
 };
 

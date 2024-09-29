@@ -4,16 +4,21 @@ import Header from "../../../components/header/header";
 import Footer from "../../../components/footer/Footer";
 import SEOHead from "../../../html/SEOHead";
 
+export const metadata = {
+    title: "Privacy Policy | Crypto3Blog", // Include site name for clarity
+    description: "Read the privacy policy of Crypto3Blog, outlining our commitment to protecting user privacy and data.",
+    keywords: "privacy policy, crypto, data protection, user information, Crypto3Blog",
+};
+
 const PrivacyPolicy = () => {
     return (
         <Wrapper>
             <SEOHead
-                title="Privacy Policy - Crypto3Blog"
-                description="Read the privacy policy of Crypto3Blog, outlining our commitment to protecting user privacy and data."
-                keywords="privacy policy, crypto, data protection, user information, Crypto3Blog"
+                title={metadata.title}
+                description={metadata.description}
+                keywords={metadata.keywords}
             />
             <Header />
-
             {/* ------------------------- Privacy Policy Content ------------------------------------- */}
             <div className="px-3 md:px-10 pt-14 mt-14 md:mt-0 pb-6 md:py-8 commonContentBackground">
                 <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
@@ -89,7 +94,6 @@ const PrivacyPolicy = () => {
                     Email: info@crypto3blog.com
                 </address>
             </div>
-
             <Footer />
         </Wrapper>
     );
