@@ -115,22 +115,7 @@ export default function BlogListing({ initialArticles, categoryId }) {
 
                         {/* Related Articles Data */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6">
-                            {loading
-                                ? Array.from({ length: 6 }).map((_, index) => (
-                                    <div
-                                        key={`shimmer-${index}`}
-                                        className="border rounded-lg overflow-hidden shadow-md shimmer bg-gray-200"
-                                    >
-                                        {/* Shimmer effect for the image */}
-                                        <div className="w-full h-48 bg-gray-300 shimmer"></div>
-                                        <div className="p-4">
-                                            {/* Shimmer effect for the title */}
-                                            <div className="w-full h-6 bg-gray-300 shimmer mb-2"></div>
-                                            <div className="w-2/3 h-6 bg-gray-300 shimmer"></div>
-                                        </div>
-                                    </div>
-                                ))
-                                : articles?.map((item, index) => (
+                            {articles?.map((item, index) => (
                                     <a
                                         href={`/${item?.code}`}
                                         key={item?.code + index + item?.title + "subCategoriesData"}
