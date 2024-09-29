@@ -1,11 +1,10 @@
 import React from "react";
-import Wrapper from "../../hoc/wrapper";
-import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMiddleSection";
-import Header from "../../components/header/header";
 import CommonWrapper from "../../hoc/commonWrapper";
 import MiddleWrapper from "../../hoc/middleWrapper";
-import Footer from "../../components/footer/Footer";
+import Wrapper from "../../hoc/wrapper";
 import SEOHead from "../../html/SEOHead";
+import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMiddleSection";
+import Footer from "../../components/footer/Footer";
 
  export const metadata = {
   title: 'Crypto3Blog',
@@ -21,10 +20,7 @@ import SEOHead from "../../html/SEOHead";
         description={metadata?.description}
       />
 
-      <div className="h-screen bg-white">
-        {/* ------------------- Blog Header -------------------------- */}
-          <Header />
-          
+      <div className=" bg-white">    
         <div className="md:w-full flex">
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
             <CommonWrapper/>
@@ -36,14 +32,11 @@ import SEOHead from "../../html/SEOHead";
 
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
           <CommonWrapper />
-
-         
         </div>
 
-        {/* ------------------------------------- Footer------------------------------------------------ */}
-        <Footer />
-
       </div>
+
+     
     </Wrapper>
    
   );

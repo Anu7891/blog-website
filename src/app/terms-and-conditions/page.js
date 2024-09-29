@@ -26,8 +26,6 @@ const TermsAndConditions = () => {
                 url={metadata?.url}
             />
 
-            {/* ------------------------ Header Component ---------------------------- */}
-            <Header />
 
             {/* ------------------------ Terms and Conditions Content ---------------------------- */}
             <div className="px-3 md:px-10 pt-14 mt-14 md:mt-0 pb-6 md:py-8 commonContentBackground">
@@ -85,9 +83,6 @@ const TermsAndConditions = () => {
                     If you have any questions or concerns regarding these Terms and Conditions, please contact us.
                 </p>
             </div>
-
-            {/* ------------------------ Footer Component---------------------------- */}
-            <Footer />
         </Wrapper>
     );
 };
