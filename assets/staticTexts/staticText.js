@@ -1,7 +1,9 @@
 export const footerStaticData =[
     {
-      title:"Privacy",
-      link:"https://imagesnew.crypto3blog.com/privacy.html",
+      title:"Privacy Policy",
+      // link:"https://imagesnew.crypto3blog.com/privacy.html",
+      link: "/privacy-policy",
+
       id:"privacy"
 
     }, 
