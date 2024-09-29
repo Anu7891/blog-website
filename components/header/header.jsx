@@ -51,6 +51,7 @@ const Header = ({ categories, loading, error }) => {
                   onClick={handleSwipableDrawer}
                 />
               ) : (
+                <div className="close-icon">
                 <CustomImage
                   src={CLOSE_ICON}
                   alt="close-icon"
@@ -59,6 +60,7 @@ const Header = ({ categories, loading, error }) => {
                   width={36}
                   onClick={handleCloseSwipableDrawer}
                 />
+                </div>
               )}
             </div>
             <CustomLink
