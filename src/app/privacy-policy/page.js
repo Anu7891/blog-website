@@ -18,7 +18,6 @@ const PrivacyPolicy = () => {
                 description={metadata.description}
                 keywords={metadata.keywords}
             />
-            <Header />
             {/* ------------------------- Privacy Policy Content ------------------------------------- */}
             <div className="px-3 md:px-10 pt-14 mt-14 md:mt-0 pb-6 md:py-8 commonContentBackground">
                 <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
@@ -94,7 +93,6 @@ const PrivacyPolicy = () => {
                     Email: info@crypto3blog.com
                 </address>
             </div>
-            <Footer />
         </Wrapper>
     );
 };

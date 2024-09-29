@@ -90,8 +90,6 @@ export default async function MainBlogDetails({ params }) {
 
         return (
             <Wrapper>
-                {/* ---------------------------------- Header---------------------------------- */}
-                <Header />
 
                 <div className="md:w-full flex">
                     <CommonWrapper />
@@ -132,7 +130,6 @@ export default async function MainBlogDetails({ params }) {
                     <CommonWrapper />
                 </div>
 
-                <Footer />
             </Wrapper>
         );
     } catch (error) {

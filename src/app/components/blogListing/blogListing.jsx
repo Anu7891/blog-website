@@ -1,14 +1,12 @@
 'use client'; // Ensures this is a client-side component
-import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import Wrapper from '../../../../hoc/wrapper';
-import Header from '../../../../components/header/header';
-import CustomTitle from '../../../../components/title/customTitle';
-import MiddleWrapper from '../../../../hoc/middleWrapper';
-import CommonWrapper from '../../../../hoc/commonWrapper';
-import Styles from '../../components/subCategoriesList/subCategories.module.css';
+import { useEffect, useState } from 'react';
 import CustomLoader from '../../../../components/loader/customLoader';
-import Footer from '../../../../components/footer/Footer';
+import CustomTitle from '../../../../components/title/customTitle';
+import CommonWrapper from '../../../../hoc/commonWrapper';
+import MiddleWrapper from '../../../../hoc/middleWrapper';
+import Wrapper from '../../../../hoc/wrapper';
+import Styles from '../../components/subCategoriesList/subCategories.module.css';
 
 // Dynamically import CustomImage
 const CustomImage = dynamic(() => import('../../../../components/image/image'));
@@ -62,8 +60,6 @@ export default function BlogListing({ initialArticles, categoryId }) {
         <Wrapper>
 
             
-            {/* --------------------------------- Header -------------------------------------------- */}
-            <Header />
             {/* --------------------------------- Body Content -------------------------------------------- */}
 
             <div className="md:w-full flex">
@@ -152,9 +148,6 @@ export default function BlogListing({ initialArticles, categoryId }) {
 
                 <CommonWrapper />
             </div>
-            
-            {/* --------------------------------- Footer -------------------------------------------- */}
-             <Footer/>
         </Wrapper>
     );
 }
