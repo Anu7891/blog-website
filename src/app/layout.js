@@ -8,6 +8,8 @@ import { fetchCategories } from "@/utils/apiHelper"; // Adjust the import accord
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/Footer";
 import ProgressBar from "../../components/progressBar/ProgressBar";
+import Head from "next/head";
+import { GOOGLE_TAG_MANAGER } from "../../lib/config";
 // Adjust the import according to your project structure
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,6 +37,20 @@ export default function RootLayout({ children, pageProps ={} }) {
 
   return (
     <html lang="en">
+      <Head>
+        {/* Google Analytics */}
+        <script async src={GOOGLE_TAG_MANAGER} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6HL7C513VS');
+            `,
+          }}
+        />
+      </Head>
       <body className={inter.className}>
         <ProgressBar />
        <Header categories={categories} loading={loading} error={error} />
