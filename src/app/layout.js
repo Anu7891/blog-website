@@ -36,7 +36,7 @@ export default function RootLayout({ children, pageProps ={} }) {
 
   return (
     <html lang="en">
-      <Head>
+  
         {/* ======================== Google Analytics ======================================= */}
         <Head>
           <script async src={GOOGLE_TAG_MANAGER}></script>
@@ -51,9 +51,7 @@ export default function RootLayout({ children, pageProps ={} }) {
             }}
           />
         </Head>
-
-      </Head>
-      <body className={inter.className}>
+         <body className={inter.className}>
         <ProgressBar />
        <Header categories={categories} loading={loading} error={error} />
         <main>{children}</main>
