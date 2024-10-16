@@ -37,18 +37,21 @@ export default function RootLayout({ children, pageProps ={} }) {
   return (
     <html lang="en">
       <Head>
-        {/* Google Analytics */}
-        <script async src={GOOGLE_TAG_MANAGER} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+        {/* ======================== Google Analytics ======================================= */}
+        <Head>
+          <script async src={GOOGLE_TAG_MANAGER}></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-M4MSTNBMH2');
+              gtag('config', 'G-BEZGEP0WZN');
             `,
-          }}
-        />
+            }}
+          />
+        </Head>
+
       </Head>
       <body className={inter.className}>
         <ProgressBar />
