@@ -1,19 +1,24 @@
 // app/layout.js
 "use client"; // Import this to enable hooks in a server component
-
-import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { Inter } from "next/font/google";
+import Script from 'next/script'; // Import next/scriptimport { GOOGLE_TAG_MANAGER } from "../../lib/config";
 import "./globals.css";
-import { fetchCategories } from "@/utils/apiHelper"; // Adjust the import according to your project structure
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/Footer";
 import ProgressBar from "../../components/progressBar/ProgressBar";
-import Head from "next/head";
 import { GOOGLE_TAG_MANAGER } from "../../lib/config";
+
+// Dynamically Imported Components
+const Header = dynamic(() => import("../../components/header/header"));
+const Footer = dynamic(() => import("../../components/footer/Footer"));
+
+
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({ children, pageProps ={} }) {
+export default function RootLayout({ children, pageProps = {} }) {
   const { hideHeader, hideFooter } = pageProps; // Accept conditional flags
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,6 +27,7 @@ export default function RootLayout({ children, pageProps ={} }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const { fetchCategories } = await import("@/utils/apiHelper");
         const data = await fetchCategories();
         setCategories(data);
         setLoading(false);
@@ -36,26 +42,26 @@ export default function RootLayout({ children, pageProps ={} }) {
 
   return (
     <html lang="en">
-  
+      <head>
         {/* ======================== Google Analytics ======================================= */}
-        <Head>
-          <script async src={GOOGLE_TAG_MANAGER}></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-BEZGEP0WZN');
-            `,
-            }}
-          />
-        </Head>
-         <body className={inter.className}>
+        <Script
+          strategy="afterInteractive"
+          src={GOOGLE_TAG_MANAGER}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BEZGEP0WZN');
+          `}
+        </Script>
+      </head>
+      <body className={inter.className}>
         <ProgressBar />
-       <Header categories={categories} loading={loading} error={error} />
+        {!hideHeader && <Header categories={categories} loading={loading} error={error} />}
         <main>{children}</main>
-        <Footer />
+        {!hideFooter && <Footer />}
       </body>
     </html>
   );
