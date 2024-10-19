@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
-import Script from 'next/script'; // Import next/scriptimport { GOOGLE_TAG_MANAGER } from "../../lib/config";
+import Script from 'next/script'; // Import next/script
 import "./globals.css";
 import ProgressBar from "../../components/progressBar/ProgressBar";
 import { GOOGLE_TAG_MANAGER } from "../../lib/config";

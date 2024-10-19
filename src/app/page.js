@@ -4,7 +4,6 @@ import MiddleWrapper from "../../hoc/middleWrapper";
 import Wrapper from "../../hoc/wrapper";
 import SEOHead from "../../html/SEOHead";
 import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMiddleSection";
-import Footer from "../../components/footer/Footer";
 
  export const metadata = {
   title: 'Crypto3Blog',
