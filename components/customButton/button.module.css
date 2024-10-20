@@ -1,0 +1,14 @@
+.btnClass {
+    background: #000;
+    height: 44px !important;
+    border-radius: 25px;
+    border: 1px solid #000;
+    outline: none;
+    cursor: pointer;
+}
+
+.btnText {
+    color: #fff;
+    font-size: clamp(1rem,0.938vw,1.125rem);
+}
+

@@ -2,11 +2,11 @@ import React from 'react';
 import Wrapper from '../../../hoc/wrapper';
 import { API_BASE_URL } from '../../../lib/config';
 import CustomImage from '../../../components/image/image';
-import Header from '../../../components/header/header';
 import Styles from "../styles/blogDetails.module.css";
 import CommonWrapper from '../../../hoc/commonWrapper';
 import MiddleWrapper from '../../../hoc/middleWrapper';
-import Footer from '../../../components/footer/Footer';
+import dynamic from 'next/dynamic';
+const NotFound = dynamic(() => import('../components/notFound/notFound'));
 
 // Fetch all possible article paths during the build
 export async function generateStaticParams() {
@@ -83,7 +83,7 @@ export default async function MainBlogDetails({ params }) {
 
         // Check if article exists
         if (!article?.data?.[0]) {
-            return <div>Article not found</div>;
+            return  <NotFound className="article-not-found-class"  errorText={"Articles Not Found !"} />
         }
 
         const { title, image, description, htmlDescription } = article?.data[0];
