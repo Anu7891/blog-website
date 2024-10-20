@@ -8,6 +8,7 @@ import CustomDrawer from "../drawer/customDrawer";
 import CustomImage from "../image/image";
 import Link from "next/link";
 import CustomLink from "../customLink/customLink";
+import SearchComponent from "@/app/components/searchComponent/searchComponent";
 
 const Header = ({ categories, loading, error }) => {
   const [swipableDrawer, setSwipableDrawer] = React.useState(false);
@@ -88,20 +89,23 @@ const Header = ({ categories, loading, error }) => {
             ) : error ? (
               <p>{error}</p>
             ) : (
-              categories?.data?.length > 0 &&
-              categories?.data?.map((link, index) => (
-                <CustomLink
-                  key={link?.name?.en + index}
-                  href={`/c/${link?.id}`}
-                  className={`text-sm md:text-base categoryLink ${selectedLink === link?.id
-                    ? "selectedLink"
-                    : "hover:underline mb-2"
-                    }`} // Add hover only if not selected
-                  handleClick={() => handleLinkClick(link?.id)} // Set the selected link
-                >
-                  {link?.name?.en || link?.description}
-                </CustomLink>
-              ))
+              <div className="flex items-center justify-center gap-8">
+                {categories?.data?.length > 0 &&
+                categories?.data?.map((link, index) => (
+                  <CustomLink
+                    key={link?.name?.en + index}
+                    href={`/c/${link?.id}`}
+                    className={`text-sm md:text-base categoryLink ${selectedLink === link?.id
+                      ? "selectedLink"
+                      : "hover:underline mb-2"
+                      }`} // Add hover only if not selected
+                    handleClick={() => handleLinkClick(link?.id)} // Set the selected link
+                  >
+                    {link?.name?.en || link?.description}
+                  </CustomLink>
+                ))}
+                <SearchComponent/>
+              </div>
             )}
           </div>
         </div>

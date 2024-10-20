@@ -1,0 +1,42 @@
+
+.searchButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    margin-top: -6px;
+}
+
+
+
+.searchButton svg {
+    color: #fff;
+}
+
+.searchInputWrapper {
+ background: #fff;
+ height: 44px;
+margin-bottom: 0;
+padding-inline: 16px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+position: absolute;
+right: -50px;
+top:30px;
+width: 340px;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.searchInputWrapper > input {
+    margin-left: 8px;
+  
+}
+
+.searchInputWrapper > input:focus {
+    border: none;
+    outline: none;
+}
