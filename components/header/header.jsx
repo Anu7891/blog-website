@@ -104,7 +104,7 @@ const Header = ({ categories, loading, error }) => {
                     {link?.name?.en || link?.description}
                   </CustomLink>
                 ))}
-                <SearchComponent/>
+                {/* <SearchComponent/> */}
               </div>
             )}
           </div>
