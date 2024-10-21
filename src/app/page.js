@@ -8,6 +8,9 @@ import MiddleWrapper from '../../hoc/middleWrapper';
 import HomePageMiddleSection from './components/homePageMiddleSection/homePageMiddleSection';
 import SearchBlogList from './components/searchBlogList/searchBlogList';
 
+// Mark the page as dynamic
+export const dynamic = 'force-dynamic';
+
 // Server Component to Render the Root Page with Query Parameter Handling
 const HomePage = async ({ searchParams }) => {
   const searchQuery = searchParams?.s || ""; // Extract the `s` parameter from the query string
@@ -44,26 +47,6 @@ const HomePage = async ({ searchParams }) => {
   );
 };
 
-// Component for rendering search results, to keep `HomePage` clean
-const SearchResultsSection = ({ searchResults, searchQuery }) => {
-  return (
-    <div>
-      <h1>Search Results for: {searchQuery}</h1>
-      <p>Showing {searchResults.length} results for your search</p>
-      <div className="results-grid">
-        {searchResults.length > 0 ? (
-          searchResults.map((result, index) => (
-            <div key={index} className="result-item">
-              <h3>{result.title}</h3>
-              <p>{result.description}</p>
-            </div>
-          ))
-        ) : (
-          <p>No results found</p>
-        )}
-      </div>
-    </div>
-  );
-};
+
 
 export default HomePage;
