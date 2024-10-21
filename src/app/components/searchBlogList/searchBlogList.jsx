@@ -4,10 +4,14 @@ import Wrapper from "../../../../hoc/wrapper";
 import styles from "./searchBlogList.module.css";
 import CustomLink from "../../../../components/customLink/customLink";
 import SearchBar from "../searchComponent/searchBar";
+import { getSearchResults } from "../../../../lib/fetchSearchResults";
 
 const CustomImage = dynamic(() => import("../../../../components/image/image"));
 
-const SearchBlogList = ({ searchResults = [], searchQuery ="" }) => {
+const SearchBlogList = async({searchQuery = "" }) => {
+    
+    // Fetch search results based on the search query
+    const searchResults = searchQuery ? await getSearchResults(searchQuery) : [];
 
     const searchData = searchResults?.data;
     const searchResultsLength = searchResults?.data?.length;

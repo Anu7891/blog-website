@@ -2,8 +2,10 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { CATEGORIES_LISTS_URL, SUBCATEGORIES_URL } from '../../../../lib/config';
 
-// Dynamically import BlogListing component
-const BlogListing = dynamic(() => import('@/app/components/blogListing/blogListing'));
+// Dynamically import BlogListing component, disabling SSR for client-side only functionality
+const BlogListing = dynamic(() => import('@/app/components/blogListing/blogListing'), {
+    ssr: false, // Ensures that this component is not rendered on the server side
+});
 
 // Generate metadata dynamically based on category
 export async function generateMetadata({ params }) {
@@ -48,7 +50,7 @@ export async function generateStaticParams() {
         if (!res.ok) throw new Error('Failed to fetch subcategories');
         const categories = await res.json();
 
-        return categories.data.map((category) => ({
+        return categories.data?.length > 0 && categories.data.map((category) => ({
             id: category?.categoryId,
         }));
     } catch (error) {
@@ -58,23 +60,41 @@ export async function generateStaticParams() {
 }
 
 // Category page component
-export default async function Category({ params }) {
+export default async function CategoryPage({ params }) {
     const { id } = params;
 
     // Fetch articles for the category
-    let articles;
     try {
         const res = await fetch(CATEGORIES_LISTS_URL(id), {
             cache: 'no-store', // Fetch fresh data on each request
         });
 
         if (!res.ok) throw new Error('Failed to fetch articles');
-        articles = await res.json();
+        const articles = await res.json();
+
+        // Render BlogListing with fetched articles and categoryId
+        return (
+            <div>
+                <BlogListing initialArticles={articles} categoryId={id} />
+            </div>
+        );
     } catch (error) {
         console.error("Error fetching articles:", error);
         return <div>Failed to load articles. Please try again later.</div>;
     }
+}
 
-    // Render BlogListing with fetched articles and categoryId
-    return <BlogListing initialArticles={articles} categoryId={id} />;
+// Loading component to indicate loading state during SSR
+export function Loading() {
+    return <div>Loading articles...</div>;
+}
+
+// Error boundary component to handle errors during SSR
+export function ErrorBoundary({ error }) {
+    return (
+        <div>
+            <h2>Something went wrong!</h2>
+            <p>{error.message}</p>
+        </div>
+    );
 }

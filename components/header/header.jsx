@@ -67,7 +67,7 @@ const Header = ({ categories, loading, error }) => {
             <CustomLink
               href="/"
               className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3"
-              handleclick={handleHomePageRouting}
+              onClick={handleHomePageRouting}
             >
               <p className="logoImgClass">
                 <CustomImage
@@ -99,7 +99,7 @@ const Header = ({ categories, loading, error }) => {
                       ? "selectedLink"
                       : "hover:underline mb-2"
                       }`} // Add hover only if not selected
-                    handleclick={() => handleLinkClick(link?.id)} // Set the selected link
+                    onClick={() => handleLinkClick(link?.id)} // Set the selected link
                   >
                     {link?.name?.en || link?.description}
                   </CustomLink>
