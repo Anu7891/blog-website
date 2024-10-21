@@ -1,5 +1,6 @@
 // app/page.jsx
 
+
 import Wrapper from '../../hoc/wrapper';
 import SEOHead from '../../html/SEOHead';
 import CommonWrapper from '../../hoc/commonWrapper';
@@ -12,8 +13,11 @@ import SearchBlogList from './components/searchBlogList/searchBlogList';
 
 
 // Server Component to Render the Root Page with Query Parameter Handling
-const HomePage = async ({ searchParams }) => {
-  const searchQuery = searchParams?.s || ""; // Extract the `s` parameter from the query string
+const HomePage =  ({ searchParams }) => {
+    const searchQuery = searchParams?.s || ""; // Extract the `s` parameter from the query string
+
+  
+
   return (
     <Wrapper>
       {/* ----------------------- SEO Head Description -------------------------------------- */}

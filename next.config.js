@@ -1,6 +1,5 @@
 // next.config.js
 module.exports = {
-    reactStrictMode: true ,// Remove output: 'export' since SSR is required
     images: {
         remotePatterns: [
             {
