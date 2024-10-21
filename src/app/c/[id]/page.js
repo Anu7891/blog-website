@@ -13,7 +13,10 @@ export async function generateMetadata({ params }) {
 
     try {
         // Fetch category details for metadata
-        const res = await fetch(CATEGORIES_LISTS_URL(id), { cache: 'no-store' });
+        const res = await fetch(CATEGORIES_LISTS_URL(id), {
+            next: { revalidate: 60 } // Revalidate every 60 seconds to keep data fresh
+        });
+
         if (!res.ok) throw new Error('Failed to fetch category data');
         const category = await res.json();
 
@@ -50,7 +53,7 @@ export async function generateStaticParams() {
         if (!res.ok) throw new Error('Failed to fetch subcategories');
         const categories = await res.json();
 
-        return categories.data?.length > 0 && categories.data.map((category) => ({
+        return categories.data.map((category) => ({
             id: category?.categoryId,
         }));
     } catch (error) {
@@ -66,7 +69,7 @@ export default async function CategoryPage({ params }) {
     // Fetch articles for the category
     try {
         const res = await fetch(CATEGORIES_LISTS_URL(id), {
-            cache: 'no-store', // Fetch fresh data on each request
+            cache: 'no-store', next: { revalidate: 60 } // Revalidate every 60 seconds to avoid dynamic server error
         });
 
         if (!res.ok) throw new Error('Failed to fetch articles');
