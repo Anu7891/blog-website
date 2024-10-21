@@ -1,44 +1,69 @@
-import React from "react";
-import CommonWrapper from "../../hoc/commonWrapper";
-import MiddleWrapper from "../../hoc/middleWrapper";
-import Wrapper from "../../hoc/wrapper";
-import SEOHead from "../../html/SEOHead";
-import HomePageMiddleSection from "./components/homePageMiddleSection/homePageMiddleSection";
+// app/page.jsx
 
- export const metadata = {
-  title: 'Crypto3Blog',
-  description: 'Stay updated with the latest crypto news, trends, and insights on Crypto3Blog.',
-};
+import { getSearchResults } from '../../lib/fetchSearchResults';
+import Wrapper from '../../hoc/wrapper';
+import SEOHead from '../../html/SEOHead';
+import CommonWrapper from '../../hoc/commonWrapper';
+import MiddleWrapper from '../../hoc/middleWrapper';
+import HomePageMiddleSection from './components/homePageMiddleSection/homePageMiddleSection';
+import SearchBlogList from './components/searchBlogList/searchBlogList';
 
- const HomePage = ()=>  {
+// Server Component to Render the Root Page with Query Parameter Handling
+const HomePage = async ({ searchParams }) => {
+  const searchQuery = searchParams?.s || ""; // Extract the `s` parameter from the query string
+  // Fetch search results based on the search query
+  const searchResults = searchQuery ? await getSearchResults(searchQuery) : [];
+
   return (
     <Wrapper>
       {/* ----------------------- SEO Head Description -------------------------------------- */}
       <SEOHead
-        title={metadata?.title}
-        description={metadata?.description}
+        title={searchQuery ? `Search Results for: ${searchQuery}` : "Home Page"}
+        description={searchQuery ? `Showing results for: ${searchQuery}` : "Welcome to the Home Page"}
       />
 
-      <div className=" bg-white">    
+      <div className="bg-white">
         <div className="md:w-full flex">
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
-            <CommonWrapper/>
+          <CommonWrapper />
 
           {/* ------------------------- Home Page Middle Section ------------------------------- */}
-            <MiddleWrapper>
-             <HomePageMiddleSection/>
-            </MiddleWrapper>
+          <MiddleWrapper>
+            {searchQuery ? (
+              <SearchBlogList searchResults={searchResults} searchQuery={searchQuery} />
+            ) : (
+              <HomePageMiddleSection />
+            )}
+          </MiddleWrapper>
 
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}
           <CommonWrapper />
         </div>
-
       </div>
-
-     
     </Wrapper>
-   
   );
-}
+};
+
+// Component for rendering search results, to keep `HomePage` clean
+const SearchResultsSection = ({ searchResults, searchQuery }) => {
+  return (
+    <div>
+      <h1>Search Results for: {searchQuery}</h1>
+      <p>Showing {searchResults.length} results for your search</p>
+      <div className="results-grid">
+        {searchResults.length > 0 ? (
+          searchResults.map((result, index) => (
+            <div key={index} className="result-item">
+              <h3>{result.title}</h3>
+              <p>{result.description}</p>
+            </div>
+          ))
+        ) : (
+          <p>No results found</p>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default HomePage;

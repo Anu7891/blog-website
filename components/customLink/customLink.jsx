@@ -7,14 +7,14 @@ const CustomLink = (props) => {
         href ="",
         className= "",
         children, 
-        handleClick,
+        handleclick,
         key, 
         style
     } = props;
     
     return(
 
-        <Link href={href} className={className} onClick={handleClick} style={style} >
+        <Link href={href} className={className} onClick={handleclick} style={style} {...props} >
             {children}
         </Link>
     )
