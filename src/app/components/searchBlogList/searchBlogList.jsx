@@ -8,7 +8,9 @@ import { getSearchResults } from "../../../../lib/fetchSearchResults";
 
 const CustomImage = dynamic(() => import("../../../../components/image/image"));
 
-const SearchBlogList = async({searchQuery = "" }) => {
+const SearchBlogList = async ({searchQuery = "" }) => {
+
+    console.log(searchQuery,"dgfdhdfhgdf")
     
     // Fetch search results based on the search query
     const searchResults = searchQuery ? await getSearchResults(searchQuery) : [];
