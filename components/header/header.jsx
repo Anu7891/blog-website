@@ -1,6 +1,6 @@
 // components/header/header.js
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import Wrapper from "../../hoc/wrapper";
 import Styles from "./header.module.css";
 import { CLOSE_ICON, HAMBURGER_ICON, LOGO_IMG } from "../../lib/config";
@@ -11,8 +11,8 @@ import CustomLink from "../customLink/customLink";
 import SearchComponent from "@/app/components/searchComponent/searchComponent";
 
 const Header = ({ categories, loading, error }) => {
-  const [swipableDrawer, setSwipableDrawer] = React.useState(false);
-  const [selectedLink, setSelectedLink] = React.useState(null); // State to track the selected link
+  const [swipableDrawer, setSwipableDrawer] = useState(false);
+  const [selectedLink, setSelectedLink] = useState(null); // State to track the selected link
 
   const handleSwipableDrawer = () => {
     setSwipableDrawer(!swipableDrawer);
@@ -67,7 +67,7 @@ const Header = ({ categories, loading, error }) => {
             <CustomLink
               href="/"
               className="col-9 pl-0 md:col-12 flex md:justify-center md:mb-3"
-              handleClick={handleHomePageRouting}
+              handleclick={handleHomePageRouting}
             >
               <p className="logoImgClass">
                 <CustomImage
@@ -99,12 +99,13 @@ const Header = ({ categories, loading, error }) => {
                       ? "selectedLink"
                       : "hover:underline mb-2"
                       }`} // Add hover only if not selected
-                    handleClick={() => handleLinkClick(link?.id)} // Set the selected link
+                    handleclick={() => handleLinkClick(link?.id)} // Set the selected link
                   >
                     {link?.name?.en || link?.description}
                   </CustomLink>
                 ))}
-                {/* <SearchComponent/> */}
+                {/* -------------------------- Search Icon Section ---------------------------- */}
+                <SearchComponent/>
               </div>
             )}
           </div>
