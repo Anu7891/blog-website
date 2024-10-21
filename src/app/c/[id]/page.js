@@ -69,7 +69,7 @@ export default async function CategoryPage({ params }) {
     // Fetch articles for the category
     try {
         const res = await fetch(CATEGORIES_LISTS_URL(id), {
-            cache: 'no-store', next: { revalidate: 60 } // Revalidate every 60 seconds to avoid dynamic server error
+            next: { revalidate: 60 } // Revalidate every 60 seconds to avoid dynamic server error
         });
 
         if (!res.ok) throw new Error('Failed to fetch articles');
