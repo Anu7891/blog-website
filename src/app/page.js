@@ -7,8 +7,8 @@ import MiddleWrapper from '../../hoc/middleWrapper';
 import HomePageMiddleSection from './components/homePageMiddleSection/homePageMiddleSection';
 import SearchBlogList from './components/searchBlogList/searchBlogList';
 
-// Force the page to be rendered dynamically, so it can handle query parameters at runtime
-export const dynamic = "force-dynamic";
+// // Force the page to be rendered dynamically, so it can handle query parameters at runtime
+// export const dynamic = "force-dynamic";
 
 
 // Server Component to Render the Root Page with Query Parameter Handling
