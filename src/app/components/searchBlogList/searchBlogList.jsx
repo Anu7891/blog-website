@@ -3,17 +3,10 @@ import dynamic from "next/dynamic";
 import Wrapper from "../../../../hoc/wrapper";
 import styles from "./searchBlogList.module.css";
 import CustomLink from "../../../../components/customLink/customLink";
-import SearchBar from "../searchComponent/searchBar";
-import { getSearchResults } from "../../../../lib/fetchSearchResults";
 
 const CustomImage = dynamic(() => import("../../../../components/image/image"));
 
-const SearchBlogList = async ({searchQuery = "" }) => {
-
-    console.log(searchQuery,"dgfdhdfhgdf")
-    
-    // Fetch search results based on the search query
-    const searchResults = searchQuery ? await getSearchResults(searchQuery) : [];
+const SearchBlogList = async ({ searchResults = "", searchQuery=""}) => {
 
     const searchData = searchResults?.data;
     const searchResultsLength = searchResults?.data?.length;
@@ -27,8 +20,6 @@ const SearchBlogList = async ({searchQuery = "" }) => {
                 Search Results for: {searchQuery}
                 <p className={styles?.searchResults}>Showing {searchResultsLength} results for your search</p>
              </div>
-
-                {/* <SearchBar className={"mt-7 py-3 mb-4 rounded-xl"}  /> */}
 
             <div className="p-4 mt-6 mb-5">
                 {searchResultsLength > 0 ? (

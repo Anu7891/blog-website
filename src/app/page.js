@@ -8,13 +8,10 @@ import MiddleWrapper from '../../hoc/middleWrapper';
 import HomePageMiddleSection from './components/homePageMiddleSection/homePageMiddleSection';
 import SearchBlogList from './components/searchBlogList/searchBlogList';
 
-// // Force the page to be rendered dynamically, so it can handle query parameters at runtime
-// export const dynamic = "force-dynamic";
 
 
 // Server Component to Render the Root Page with Query Parameter Handling
 const HomePage =  ({ searchParams }) => {
-    const searchQuery = searchParams?.s || ""; // Extract the `s` parameter from the query string
 
   
 
@@ -22,8 +19,8 @@ const HomePage =  ({ searchParams }) => {
     <Wrapper>
       {/* ----------------------- SEO Head Description -------------------------------------- */}
       <SEOHead
-        title={searchQuery ? `Search Results for: ${searchQuery}` : "Home Page"}
-        description={searchQuery ? `Showing results for: ${searchQuery}` : "Welcome to the Home Page"}
+        title={"Home Page"}
+        description={"Welcome to the Home Page"}
       />
 
       <div className="bg-white">
@@ -33,11 +30,7 @@ const HomePage =  ({ searchParams }) => {
 
           {/* ------------------------- Home Page Middle Section ------------------------------- */}
           <MiddleWrapper>
-            {searchQuery ? (
-              <SearchBlogList searchQuery={searchQuery} />
-            ) : (
               <HomePageMiddleSection />
-            )}
           </MiddleWrapper>
 
           {/* ------------------------ Containers For Ad Sense -------------------------------- */}

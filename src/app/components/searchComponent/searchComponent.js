@@ -19,7 +19,7 @@ const SearchComponent = () => {
     // Function to handle clicking the "Go" arrow button
     const handleSearch = () => {
         if (query.trim() !== '') {
-            router.push(`/?s=${query}`); // Navigate to a new URL with the search query
+            router.push(`/search?q=${query}`); // Navigate to a new URL with the search query
         }
     };
 
