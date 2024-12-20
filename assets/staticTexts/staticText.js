@@ -1,7 +1,16 @@
 export const footerStaticData = [
   {
+    title: "About Us",
+    link: "/about",
+    id: "about"
+  },
+  {
+    title: "Contact Us",
+    link: "/contact",
+    id: "contact"
+  },
+  {
     title: "Privacy Policy",
-    // link:"https://imagesnew.crypto3blog.com/privacy.html",
     link: "/privacy-policy",
 
     id: "privacy"
@@ -9,10 +18,9 @@ export const footerStaticData = [
   },
   {
     title: "Terms & Conditions",
-    // link: "https://imagesnew.crypto3blog.com/terms.html",
     link: "/terms-and-conditions",
     id: "terms-conditions"
-
   },
+ 
 
 ]
