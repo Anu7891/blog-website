@@ -1,8 +1,25 @@
 import React from 'react';
+import SEOHead from '../../../html/SEOHead';
+import Wrapper from '../../../hoc/wrapper';
+import { WEB_LINK } from '../../../lib/config';
 
-
+// Metadata for the page
+export const metadata = {
+    title: "Contact Us | Crypto3Blog",
+    description: "Get in touch with Crypto3Blog for crypto news, blockchain insights, and support.",
+    keywords: "contact, contact us, Crypto3Blog",
+    url: WEB_LINK, // Website URL
+};
 const ContactForm = () => {
     return (
+        <Wrapper>
+        {/* SEO Head for page metadata */ }
+            < SEOHead
+            title = { metadata.title }
+            description = { metadata.description }
+            keywords = { metadata.keywords }
+             url = { metadata.url }
+            />
         <div className="contactFormContainer">
             <h2 className="formTitle">General Customer Care & Technical Support</h2>
             <p className="formDescription">
@@ -44,6 +61,8 @@ const ContactForm = () => {
                 <button type="submit" className="submitBtn">Submit</button>
             </form>
         </div>
+        </Wrapper>
+
     );
 };
 
